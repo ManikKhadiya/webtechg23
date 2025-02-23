@@ -1,0 +1,16 @@
+name: Accessibility Check
+
+on: push
+
+jobs:
+  check-accessibility:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Run Lighthouse Accessibility Test
+        uses: treosh/lighthouse-ci-action@v10
+        with:
+          urls: "https://manikkhadiya.github.io/webtechg23.github.io/"  # Change this if needed
+          configPath: ".lighthouserc.json"
