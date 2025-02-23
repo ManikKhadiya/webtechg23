@@ -30,7 +30,7 @@ Evaluate how we will develop a satisfying user experience and how we will utilis
 
 Give summary of overall site design Detail feature(s) that you are responsible for
 
-Discuss how we are staying within time constraints (gantt chart?)
+Discuss how we are staying within time constraints (gantt chart?, scrum board?, kanbanboard?, projects @ github?)
 
 Describe core plan with minimum spec
 
