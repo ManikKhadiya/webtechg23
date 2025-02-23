@@ -53,3 +53,8 @@ Your report must include the following:
 5. A sketch/wireframe/low/mid/high-fidelity prototype of an initial user interface for your group’s site and some commentary on the motivation for your design, i.e. how does your design address the feature/functionality for which you are responsible? You only need to include the design of the features/functionality that you are responsible for, but if you choose to include design for the whole site make sure you attribute the design to the correct individuals in your team. If your designs are hand-drawn then they can be scanned/photographed for inclusion in your report. 
 6. A project plan that demonstrates how you will organise your effort and time to achieve your goals. This plan can be presented in any appropriate form, e.g. a list of dates and tasks, a gantt chart, and/or a narrative description. It should include your personal plan to complete what you are responsible and an overall group plan. The group plan can be less detailed, but should give an indication that as a group you have discussed appropriate target completion dates for all parts of the project. 
 7. (Optional) As appropriate: any additional sections that you deem fit to describe your group’s project, with specific attention paid to the features/functionality you are responsible for. For example, if you have decided to implement a particular feature as an extension to the core requirements then this would be the place to report on it. Similarly if you intend to save data within the browser, then some description of the kinds of data that you intend to store, how you will store it, and how it will be structured, should be reported on. 
+
+
+manik features:
+accessability
+random quiz
