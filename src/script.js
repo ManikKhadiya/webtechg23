@@ -1,6 +1,3 @@
-document.getElementById("clickMe").addEventListener("click", function() {
-    alert("Button Clicked!");
-});
 
 function toggleAccessibilityMenu() {
     const menu = document.getElementById('accessibility-menu');
