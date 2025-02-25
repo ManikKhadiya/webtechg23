@@ -1,5 +1,15 @@
 ## report part one notes by Manik Khadiya.40652166 for SET0801
 
+into 
+summarry
+research
+features of our site
+what im responsibele for 
+waht i plan to do
+wireframes
+
+
+
 Report criteria/gc chat log: 
 
 discuss team members strengths and weaknesses and encourage them to work on thier weaknesses though mainly on thier strength to mitigate time wasteage and inefficiency
