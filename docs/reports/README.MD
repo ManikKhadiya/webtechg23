@@ -68,3 +68,4 @@ Your report must include the following:
 manik features:
 accessability
 random quiz
+side bar in quiz instead of nav bar
