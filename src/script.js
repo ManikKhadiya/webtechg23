@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", function() {
                     const highContrastToggle = document.getElementById('high-contrast-toggle');
                     if (highContrastToggle) {
                         highContrastToggle.addEventListener('change', function() {
-                            document.body.style.backgroundColor = this.checked ? '#000' : '#f4f4f4';
+                            document.body.style.backgroundColor = this.checked ? '#000' : '#f4f4f4'; //background colour change
                             document.body.style.color = this.checked ? '#fff' : '#000';
                         });
                     }
