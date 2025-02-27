@@ -3,12 +3,12 @@ body {
     margin: 0;
     padding: 0;
     text-align: center;
-    background-color: #f4f4f4; /* site background color */
+    background-color: #403D39; /* site background color */
 }
 
 nav ul {
     list-style: none;
-    background: #333; /* nav background color */
+    background: #252422; /* nav background color */
     padding: 10px;
     display: flex;
     justify-content: center;
@@ -21,7 +21,7 @@ nav ul li {
 }
 
 nav ul li a {
-    color: white; /* nav text color */
+    color: #CCC5B9; /* nav text color */
     text-decoration: none;
 }
 .accessibility-icon {
@@ -30,8 +30,8 @@ nav ul li a {
     right: 10px;
     cursor: pointer;
     font-size: 24px;
-    background: #000; /* icon background color */
-    color: #fff; /* icon color */
+    background: #3E6E91; /* icon background color */
+    color: #57B8FF; /* icon color */
     padding: 10px;
     border-radius: 50%;
 }
@@ -45,7 +45,7 @@ nav ul li a {
     position: fixed;
     top: 50px;
     right: 10px;
-    background: white; /* menu background color */
+    background: #CCC5B9; /* menu background color */
     padding: 10px;
     border: 1px solid #ccc; /* menu border color */
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
@@ -53,12 +53,12 @@ nav ul li a {
 
 .hero {
     padding: 50px;
-    background: #0073e6; /* hero background color */
-    color: white; /* hero text color */
+    background: #252422; /* hero background color */
+    color: #FFFCF2; /* hero text color */
 }
 .cta-button {
-    background: #ffcc00; /* button background color */
-    color: black; /* button text color */
+    background: #3E6E91; /* button background color */
+    color: #CCC5B9; /* button text color */
     padding: 10px 20px;
     text-decoration: none;
     color: black; /* button text color */
@@ -72,7 +72,7 @@ nav ul li a {
     padding: 20px;
 }
 .quiz-card {
-    background: white; /* card background color */
+    background: #CCC5B9; /* card background color */
     margin: 10px;
     padding: 20px;
     border-radius: 10px;
