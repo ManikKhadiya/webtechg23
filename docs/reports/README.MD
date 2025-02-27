@@ -58,3 +58,4 @@ Your report must include the following:
 manik features:
 accessability
 random quiz
+side menu once in category/quiz
