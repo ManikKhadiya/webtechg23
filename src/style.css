@@ -169,3 +169,52 @@ body {
     color: white !important;
 }
 /* Quiz Layout end */
+
+/* Quiz Animations */
+
+/* Fade-in animation for questions */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.quiz-container {
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Button click effect */
+.quiz-option:active {
+    transform: scale(0.95);
+    transition: transform 0.1s;
+}
+
+/* Correct & Wrong Animations */
+.correct {
+    background: #4caf50 !important;
+    color: white !important;
+    animation: correctFlash 0.5s ease-in-out;
+}
+
+.wrong {
+    background: #e63946 !important;
+    color: white !important;
+    animation: wrongShake 0.5s ease-in-out;
+}
+
+/* Flash animation for correct answer */
+@keyframes correctFlash {
+    0% { background: #4caf50; }
+    50% { background: #8bc34a; }
+    100% { background: #4caf50; }
+}
+
+/* Shake animation for wrong answer */
+@keyframes wrongShake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    50% { transform: translateX(5px); }
+    75% { transform: translateX(-5px); }
+    100% { transform: translateX(0); }
+}
+/* Quiz Animations end */
+

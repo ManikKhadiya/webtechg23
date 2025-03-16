@@ -205,5 +205,28 @@ document.addEventListener("DOMContentLoaded", function() {
 
     //timer ah end
 
+    //local ascores
+    // Show Results Page
+    function showResultsPage() {
+        saveScore(score); // Save the score before showing results
+
+        document.querySelector(".quiz-container").innerHTML = `
+            <h1>Quiz Completed!</h1>
+            <p>Your Score: ${score} / ${quizData.length}</p>
+            <p>${getResultsMessage()}</p>
+            <button onclick="restartQuiz()">Play Again</button>
+            <button onclick="viewLeaderboard()">View Leaderboard</button>
+        `;
+    }
+
+    // Save score to local storage
+    function saveScore(score) {
+        let scores = JSON.parse(localStorage.getItem("quizScores")) || [];
+            scores.push({ date: new Date().toLocaleString(), score: score });
+        localStorage.setItem("quizScores", JSON.stringify(scores));
+    }
+
+    //local scores end
+
     
 });
