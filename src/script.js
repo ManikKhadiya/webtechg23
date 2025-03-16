@@ -63,10 +63,23 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     loadFooter();
+
+    function loadSidebar() {
+        fetch("components/sidebar.html")
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById("sidebar-container").innerHTML = data;
+                console.log("sidebar loaded!");
+            })
+            .catch(error => console.error("Error loading sidebar:", error));
+    }
+
+    loadSidebar();
     
-    // Ensure both navbar and footer load when the page loads
+    // Ensure componenets load when the page loads
     document.addEventListener("DOMContentLoaded", function() {
         loadNavbar();
         loadFooter();
+        loadSidebar();
     });
 });
