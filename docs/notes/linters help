@@ -1,0 +1,66 @@
+📌 3. Linters (Code Quality Enforcement)
+
+Linters automatically check for coding errors and enforce consistent style.
+🔹 Setting Up ESLint (for JavaScript)
+
+    Install ESLint:
+
+npm install --save-dev eslint
+
+Initialize ESLint:
+
+    npx eslint --init
+
+    Example .eslintrc.json configuration:
+
+{
+    "env": {
+        "browser": true,
+        "es2021": true
+    },
+    "extends": "eslint:recommended",
+    "parserOptions": {
+        "ecmaVersion": 12
+    },
+    "rules": {
+        "semi": ["error", "always"],
+        "quotes": ["error", "double"],
+        "no-unused-vars": "warn"
+    }
+}
+
+    Run ESLint:
+
+npx eslint src/scripts/
+
+
+
+
+css Linters
+
+
+🔹 Setting Up Stylelint (for CSS)
+
+    Install Stylelint:
+
+    npm install --save-dev stylelint stylelint-config-standard
+
+    Create .stylelintrc.json configuration:
+
+{
+    "extends": "stylelint-config-standard",
+    "rules": {
+        "indentation": 2,
+        "color-hex-length": "short"
+    }
+}
+
+    Run Stylelint:
+
+npx stylelint "src/style/**/*.css"
+
+
+
+
+
+
