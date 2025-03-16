@@ -1,0 +1,15 @@
+/* High Contrast Mode */
+body.high-contrast {
+    background: black;
+    color: yellow;
+}
+
+.high-contrast button {
+    background: yellow;
+    color: black;
+}
+
+/* Large Text Mode */
+body.large-text {
+    font-size: 1.5em;
+}

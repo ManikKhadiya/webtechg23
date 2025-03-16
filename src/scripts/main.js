@@ -1,3 +1,23 @@
+document.addEventListener("DOMContentLoaded", function () {
+    loadComponent("components/navbar.html", "navbar-container");
+    loadComponent("components/footer.html", "footer-container");
+});
+
+function loadComponent(file, containerId) {
+    fetch(file)
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById(containerId).innerHTML = data;
+        })
+        .catch(error => console.error(`Error loading ${file}:`, error));
+}
+
+
+
+/*  old js code, incase new code fails
+
+
+
 function startRandomQuiz() {
     const quizzes = ["quiz1.html", "quiz2.html", "quiz3.html", "quiz4.html"]; // Replace with actual quiz pages
     const randomQuiz = quizzes[Math.floor(Math.random() * quizzes.length)];
@@ -244,3 +264,5 @@ document.addEventListener("DOMContentLoaded", function() {
     }
     
 });
+
+*/

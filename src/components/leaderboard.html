@@ -1,42 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Quiz Leaderboard</title>
-        <link rel="stylesheet" href="style.css">
-    </head>
-    <body>
-        <main class="leaderboard-container">
-            <h1>Leaderboard</h1>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Date</th>
-                        <th>Score</th>
-                    </tr>
-                </thead>
-                <tbody id="leaderboard-body"></tbody>
-            </table>
-            <button onclick="goBack()">Back to Quiz</button>
-        </main>
-
-        <script>
-            function loadLeaderboard() {
-                let scores = JSON.parse(localStorage.getItem("quizScores")) || [];
-                let leaderboardBody = document.getElementById("leaderboard-body");
-
-                leaderboardBody.innerHTML = scores
-                    .sort((a, b) => b.score - a.score) // Sort highest score first
-                    .map(score => `<tr><td>${score.date}</td><td>${score.score}</td></tr>`)
-                    .join("");
-            }
-
-            function goBack() {
-                window.location.href = "index.html"; // Redirect to quiz
-            }
-
-            document.addEventListener("DOMContentLoaded", loadLeaderboard);
-        </script>
-    </body>
-</html>
+<div class="leaderboard-container">
+    <h1>Leaderboard</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Username</th>
+                <th>Score</th>
+                <th>Date</th>
+            </tr>
+        </thead>
+        <tbody id="leaderboard-body"></tbody>
+    </table>
+</div>

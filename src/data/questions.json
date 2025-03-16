@@ -1,0 +1,32 @@
+{
+    "categories": {
+        "General Knowledge": [
+            {
+                "question": "What is the capital of France?",
+                "options": ["Paris", "London", "Berlin", "Madrid"],
+                "correct": 0,
+                "difficulty": "easy"
+            },
+            {
+                "question": "Who painted the Mona Lisa?",
+                "options": ["Van Gogh", "Da Vinci", "Picasso", "Michelangelo"],
+                "correct": 1,
+                "difficulty": "medium"
+            }
+        ],
+        "Science": [
+            {
+                "question": "What planet is closest to the Sun?",
+                "options": ["Earth", "Venus", "Mercury", "Mars"],
+                "correct": 2,
+                "difficulty": "easy"
+            },
+            {
+                "question": "What is the chemical symbol for gold?",
+                "options": ["Au", "Ag", "Pb", "Fe"],
+                "correct": 0,
+                "difficulty": "medium"
+            }
+        ]
+    }
+}

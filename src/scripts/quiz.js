@@ -1,3 +1,40 @@
+const quizData = [];
+fetch("data/questions.json")
+    .then(response => response.json())
+    .then(data => (quizData.push(...data), loadQuestion()));
+
+let currentQuestionIndex = 0;
+let score = 0;
+
+function loadQuestion() {
+    if (currentQuestionIndex >= quizData.length) {
+        showResultsPage();
+        return;
+    }
+
+    const quiz = quizData[currentQuestionIndex];
+    document.getElementById("quiz-question").innerText = quiz.question;
+
+    document.querySelectorAll(".quiz-option").forEach((button, index) => {
+        button.innerText = quiz.options[index];
+        button.classList.remove("correct", "wrong");
+    });
+}
+
+function submitAnswer(index) {
+    const quiz = quizData[currentQuestionIndex];
+    if (index === quiz.correct) {
+        score++;
+    }
+    currentQuestionIndex++;
+    loadQuestion();
+}
+
+
+
+/* incase above code faisl
+
+
 const quizData = [
     { question: "What is the capital of France?", options: ["Paris", "London", "Berlin", "Madrid"], correct: 0 },
     { question: "Which planet is closest to the sun?", options: ["Earth", "Venus", "Mercury", "Mars"], correct: 2 },
@@ -70,4 +107,39 @@ document.addEventListener("keydown", (event) => {
     if (event.key === "ArrowRight") {
         nextQuestion();
     }
+
+    const quizData = [];
+fetch("data/questions.json")
+    .then(response => response.json())
+    .then(data => (quizData.push(...data), loadQuestion()));
+
+let currentQuestionIndex = 0;
+let score = 0;
+
+function loadQuestion() {
+    if (currentQuestionIndex >= quizData.length) {
+        showResultsPage();
+        return;
+    }
+
+    const quiz = quizData[currentQuestionIndex];
+    document.getElementById("quiz-question").innerText = quiz.question;
+
+    document.querySelectorAll(".quiz-option").forEach((button, index) => {
+        button.innerText = quiz.options[index];
+        button.classList.remove("correct", "wrong");
+    });
+}
+
+function submitAnswer(index) {
+    const quiz = quizData[currentQuestionIndex];
+    if (index === quiz.correct) {
+        score++;
+    }
+    currentQuestionIndex++;
+    loadQuestion();
+}
+
 });
+
+*/
