@@ -24,11 +24,11 @@ document.addEventListener("DOMContentLoaded", function() {
 
                     if (accessibilityIcon && accessibilityMenu) {
                         accessibilityIcon.addEventListener('click', function () {
-                            console.log("Accessibility menu toggled ✅"); // Debugging
+                            console.log("Accessibility menu toggled"); // Debugging
                             accessibilityMenu.classList.toggle('hidden');
                         });
                     } else {
-                        console.error("❌ Error: Accessibility elements not found");
+                        console.error("Error: Accessibility elements not found");
                     }
 
                     const highContrastToggle = document.getElementById('high-contrast-toggle');
@@ -61,6 +61,8 @@ document.addEventListener("DOMContentLoaded", function() {
             })
             .catch(error => console.error("Error loading footer:", error));
     }
+
+    loadFooter();
     
     // Ensure both navbar and footer load when the page loads
     document.addEventListener("DOMContentLoaded", function() {
