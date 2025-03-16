@@ -227,6 +227,20 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     //local scores end
-
+    //dynamic injection
+    document.addEventListener("DOMContentLoaded", function () {
+        loadComponent("components/navbar.html", "navbar-container");
+        loadComponent("components/sidebar.html", "sidebar-container");
+        loadComponent("components/footer.html", "footer-container");
+    });
+    
+    function loadComponent(file, containerId) {
+        fetch(file)
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById(containerId).innerHTML = data;
+            })
+            .catch(error => console.error(`Error loading ${file}:`, error));
+    }
     
 });
