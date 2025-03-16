@@ -51,4 +51,21 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     loadNavbar();
+
+    function loadFooter() {
+        fetch("components/footer.html")
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById("footer-container").innerHTML = data;
+                console.log("Footer loaded!");
+            })
+            .catch(error => console.error("Error loading footer:", error));
+    }
+    
+    // Ensure both navbar and footer load when the page loads
+    document.addEventListener("DOMContentLoaded", function() {
+        loadNavbar();
+        loadFooter();
+    });
+    
 });
