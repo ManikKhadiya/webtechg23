@@ -1,25 +1,25 @@
 document.addEventListener("DOMContentLoaded", function () {
-    checkLoginStatus();
+  checkLoginStatus();
 });
 
 function checkLoginStatus() {
-    const user = localStorage.getItem("currentUser");
-    if (!user && window.location.pathname !== "/login.html") {
-        window.location.href = "login.html";
-    }
+  const user = localStorage.getItem("currentUser");
+  if (!user && window.location.pathname !== "/login.html") {
+    window.location.href = "login.html";
+  }
 }
 
 function loginUser() {
-    const username = document.getElementById("username").value;
-    if (username.trim() === "") return alert("Enter a username!");
+  const username = document.getElementById("username").value;
+  if (username.trim() === "") return alert("Enter a username!");
 
-    localStorage.setItem("currentUser", username);
-    window.location.href = "index.html";
+  localStorage.setItem("currentUser", username);
+  window.location.href = "index.html";
 }
 
 function logoutUser() {
-    localStorage.removeItem("currentUser");
-    window.location.href = "login.html";
+  localStorage.removeItem("currentUser");
+  window.location.href = "login.html";
 }
 
 

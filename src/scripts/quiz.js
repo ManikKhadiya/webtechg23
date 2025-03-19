@@ -1,33 +1,33 @@
 const quizData = [];
 fetch("data/questions.json")
-    .then(response => response.json())
-    .then(data => (quizData.push(...data), loadQuestion()));
+  .then(response => response.json())
+  .then(data => (quizData.push(...data), loadQuestion()));
 
 let currentQuestionIndex = 0;
 let score = 0;
 
 function loadQuestion() {
-    if (currentQuestionIndex >= quizData.length) {
-        showResultsPage();
-        return;
-    }
+  if (currentQuestionIndex >= quizData.length) {
+    showResultsPage();
+    return;
+  }
 
-    const quiz = quizData[currentQuestionIndex];
-    document.getElementById("quiz-question").innerText = quiz.question;
+  const quiz = quizData[currentQuestionIndex];
+  document.getElementById("quiz-question").innerText = quiz.question;
 
-    document.querySelectorAll(".quiz-option").forEach((button, index) => {
-        button.innerText = quiz.options[index];
-        button.classList.remove("correct", "wrong");
-    });
+  document.querySelectorAll(".quiz-option").forEach((button, index) => {
+    button.innerText = quiz.options[index];
+    button.classList.remove("correct", "wrong");
+  });
 }
 
 function submitAnswer(index) {
-    const quiz = quizData[currentQuestionIndex];
-    if (index === quiz.correct) {
-        score++;
-    }
-    currentQuestionIndex++;
-    loadQuestion();
+  const quiz = quizData[currentQuestionIndex];
+  if (index === quiz.correct) {
+    score++;
+  }
+  currentQuestionIndex++;
+  loadQuestion();
 }
 
 
