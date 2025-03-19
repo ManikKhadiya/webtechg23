@@ -15,4 +15,4 @@ jobs:
         uses: treosh/lighthouse-ci-action@v10
         with:
           urls: "https://manikkhadiya.github.io/webtechg23/"  # Change this if needed
-          configPath: "src/.config/.lighthouserc.json"  # shoild be correct path
+          configPath: ".config/.lighthouserc.json"  # shoild be correct path
