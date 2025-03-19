@@ -2,7 +2,7 @@
     "ci": {
         "collect": {
             "startServerCommand": "npm run start",
-            "url": ["http://localhost:3000"]
+            "url": ["https://manikkhadiya.github.io/webtechg23/"]
         },
         "assert": {
             "preset": "lighthouse:recommended"
