@@ -12,4 +12,3 @@ jobs:
       uses: foo-software/lighthouse-check-action@master
       with:  
         urls: ‘https://manikkhadiya.github.io/webtechg23/’
-        
