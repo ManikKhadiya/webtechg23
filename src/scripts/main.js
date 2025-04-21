@@ -1,29 +1,17 @@
 document.addEventListener("DOMContentLoaded", function () {
-    // Load Navbar
-    fetch("components/navbar.html")
-        .then(response => response.text())
-        .then(data => {
-            document.getElementById("navbar-container").innerHTML = data;
-        });
-
-    // Load Footer
-    fetch("components/footer.html")
-        .then(response => response.text())
-        .then(data => {
-            document.getElementById("footer-container").innerHTML = data;
-        });
-
-    // Load Accessibility Options
-    fetch("components/accessibility.html")
-        .then(response => response.text())
-        .then(data => {
-            document.getElementById("accessibility-container").innerHTML = data;
-        })
-        .then(() => {
-            // Ensure accessibility script runs AFTER the content is loaded
-            setupAccessibility();
-        });
+  loadComponent("src/components/navbar.html", "navbar-container");
+  loadComponent("src/components/footer.html", "footer-container");
 });
+
+function loadComponent(file, containerId) {
+  fetch(file)
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById(containerId).innerHTML = data;
+    })
+    .catch(error => console.error(`Error loading ${file}:`, error));
+}
+
 
 
 /*  old js code, incase new code fails

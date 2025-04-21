@@ -23,4 +23,20 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
     
+  function setupAccessibility() {
+    const icon = document.querySelector('.accessibility-icon');
+    const menu = document.querySelector('#accessibility-menu');
+
+    if (icon && menu) {
+        icon.addEventListener('click', function () {
+            menu.classList.toggle('hidden');
+        });
+    } else {
+        console.error("Accessibility elements not found");
+    }
+}
+
+// Run after DOM is loaded
+document.addEventListener("DOMContentLoaded", setupAccessibility);
+
 });

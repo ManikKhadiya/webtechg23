@@ -20,7 +20,7 @@ body.large-text {
     right: 10px;
     cursor: pointer;
     font-size: 24px;
-    background: black;
+    background: rgb(0, 4, 255);
     color: white;
     padding: 10px;
     border-radius: 50%;
