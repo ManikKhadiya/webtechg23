@@ -13,3 +13,30 @@ body.high-contrast {
 body.large-text {
     font-size: 1.5em;
 }
+
+.accessibility-icon {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    font-size: 24px;
+    background: black;
+    color: white;
+    padding: 10px;
+    border-radius: 50%;
+}
+
+#accessibility-menu {
+    display: none;
+    position: fixed;
+    top: 50px;
+    right: 10px;
+    background: white;
+    padding: 10px;
+    border: 1px solid #ccc;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+#accessibility-menu.hidden {
+    display: none;
+}
