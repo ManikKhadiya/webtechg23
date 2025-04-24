@@ -1,158 +1,125 @@
-import questionsData from '../data/questions.json' assert { type: "json" };
-
-let currentQuiz = null;
-let currentQuestionIndex = 0;
-let score = 0;
-let timer = null;
-let timeLimit = 15;
-
-const quizOptions = document.getElementById("quiz-options");
-const quizSelection = document.getElementById("quiz-selection");
-const quizArea = document.getElementById("quiz-area");
-const questionText = document.getElementById("question-text");
-const answerList = document.getElementById("answer-list");
-const questionTimer = document.getElementById("question-timer");
-const resultsSection = document.getElementById("quiz-results");
-const scoreDisplay = document.getElementById("score");
-const skipButton = document.getElementById("skip-button");
-
-const correctSound = new Audio("../assets/sfx/correct.mp3");
-const incorrectSound = new Audio("../assets/sfx/wrong_buzzer.mp3");
-const resultPassSound = new Audio("../assets/sfx/pass.mp3");
-const resultFailSound = new Audio("../assets/sfx/worng.mp3");
-
-function showQuizMenu() {
-    for (const [quizTitle, quiz] of Object.entries(questionsData)) {
-        const button = document.createElement("button");
-        button.className = "quiz-option";
-        button.textContent = quizTitle;
-        button.title = quiz.description;
-        button.onclick = () => startQuiz(quizTitle);
-        quizOptions.appendChild(button);
-    }
-}
-
-function startQuiz(title) {
-    currentQuiz = questionsData[title].questions;
-    currentQuestionIndex = 0;
-    score = 0;
-    quizSelection.classList.add("hidden");
-    quizArea.classList.remove("hidden");
-    showQuestion();
-}
-
-function showQuestion() {
-    if (currentQuestionIndex >= currentQuiz.length) {
-        return showResults();
-    }
-
-    const currentQuestion = currentQuiz[currentQuestionIndex];
-    questionText.textContent = currentQuestion.question;
-    answerList.innerHTML = "";
-
-    currentQuestion.answers.forEach(answer => {
-        const li = document.createElement("li");
-        const btn = document.createElement("button");
-        btn.textContent = answer;
-        btn.onclick = () => handleAnswer(answer === currentQuestion.correct);
-        li.appendChild(btn);
-        answerList.appendChild(li);
-    });
-
-    startTimer();
-}
-
-function startTimer() {
-    let timeLeft = timeLimit;
-    questionTimer.textContent = `Time Left: ${timeLeft}s`;
-
-    clearInterval(timer);
-    timer = setInterval(() => {
-        timeLeft--;
-        questionTimer.textContent = `Time Left: ${timeLeft}s`;
-        if (timeLeft <= 0) {
-            clearInterval(timer);
-            handleAnswer(false); // Time out is incorrect
-        }
-    }, 1000);
-}
-
-function handleAnswer(isCorrect) {
-    clearInterval(timer);
-    if (isCorrect) {
-        score++;
-        correctSound.play();
-    } else {
-        incorrectSound.play();
-    }
-    currentQuestionIndex++;
-    setTimeout(showQuestion, 1000);
-}
-
-function showResults() {
-    quizArea.classList.add("hidden");
-    resultsSection.classList.remove("hidden");
-    scoreDisplay.textContent = `${score}/${currentQuiz.length}`;
-    const percent = (score / currentQuiz.length) * 100;
-
-    if (percent >= 50) {
-        resultPassSound.play();
-    } else {
-        resultFailSound.play();
-    }
-}
-
-skipButton.addEventListener("click", () => {
-    clearInterval(timer);
-    handleAnswer(false); // Treat skip as incorrect
-});
-
-showQuizMenu();
-
-
-let selectedQuiz = null;
-
+// no longer a module—just a plain script
 document.addEventListener("DOMContentLoaded", () => {
-    const selectionContainer = document.getElementById("quiz-selection");
-    const quizContainer = document.getElementById("quiz-container");
+  let questionsData = null;
+  fetch('../data/questions.json')
+    .then(r => {
+      if (!r.ok) throw new Error(`Loading JSON failed: ${r.status}`);
+      return r.json();
+    })
+    .then(data => {
+      questionsData = data;
+      initQuiz();
+    })
+    .catch(err => console.error(err));
 
-    if (selectionContainer) {
-        const quizzes = [
-            {
-                title: "CS:GO Map Knowledge",
-                key: "map_knowledge",
-                description: "Test your knowledge of popular CS:GO maps!"
-            },
-            {
-                title: "CS:GO Weapons",
-                key: "weapons",
-                description: "How well do you know your arsenal?"
-            },
-            {
-                title: "CS:GO Pro Scene",
-                key: "pro_scene",
-                description: "Are you up to date with CS:GO esports?"
-            },
-            {
-                title: "Fun Facts",
-                key: "fun_facts",
-                description: "Fun and obscure trivia about CS:GO."
-            }
-        ];
+  // cached DOM refs
+  const selCont   = document.getElementById('selection-container');
+  const optCont   = document.getElementById('quiz-options');
+  const quizCont  = document.getElementById('quiz-container');
+  const resCont   = document.getElementById('results-container');
+  const timerDisp = document.getElementById('question-timer');
+  const qText     = document.getElementById('question-text');
+  const ansList   = document.getElementById('answer-list');
+  const skipBtn   = document.getElementById('skip-button');
+  const retryBtn  = document.getElementById('retry-button');
+  const scoreSpan = document.getElementById('score');
 
-        quizzes.forEach(quiz => {
-            const button = document.createElement("div");
-            button.className = "quiz-option";
-            button.textContent = quiz.title;
-            button.dataset.description = quiz.description;
-            button.addEventListener("click", () => {
-                selectedQuiz = quiz.key;
-                startQuiz();
-            });
-            selectionContainer.appendChild(button);
-        });
-    }
+  // sound fx
+  const correctSnd = new Audio('../assets/sfx/correct.mp3');
+  const wrongSnd   = new Audio('../assets/sfx/wrong_buzzer.mp3');
+  const passSnd    = new Audio('../assets/sfx/pass.mp3');
+  const failSnd    = new Audio('../assets/sfx/fail.mp3');
+
+  let questions = [], idx = 0, score = 0, timerId;
+  const timeLimit = 15;
+
+  function initQuiz() {
+    showOptions();
+    retryBtn.addEventListener('click', () => {
+      resetFlow();
+      showOptions();
+    });
+  }
+
+  function showOptions() {
+    selCont.classList.remove('hidden');
+    quizCont.classList.add('hidden');
+    resCont.classList.add('hidden');
+    optCont.innerHTML = '';
+    Object.keys(questionsData).forEach(key => {
+      const qz = questionsData[key];
+      const btn = document.createElement('button');
+      btn.className = 'quiz-option';
+      btn.textContent = qz.title;
+      btn.title = qz.description;
+      btn.onclick = () => startQuiz(key);
+      optCont.appendChild(btn);
+    });
+  }
+
+  function startQuiz(key) {
+    questions = questionsData[key].questions;
+    idx = 0; score = 0;
+    selCont.classList.add('hidden');
+    quizCont.classList.remove('hidden');
+    showQuestion();
+  }
+
+  function showQuestion() {
+    if (idx >= questions.length) return showResults();
+    const q = questions[idx];
+    qText.textContent = q.question;
+    ansList.innerHTML = '';
+    q.answers.forEach(opt => {
+      const li = document.createElement('li');
+      const b  = document.createElement('button');
+      b.textContent = opt;
+      b.onclick = () => answer(opt === q.correct);
+      li.appendChild(b);
+      ansList.appendChild(li);
+    });
+    startTimer();
+  }
+
+  function startTimer() {
+    let t = timeLimit;
+    timerDisp.textContent = `Time: ${t}s`;
+    clearInterval(timerId);
+    timerId = setInterval(() => {
+      t--;
+      timerDisp.textContent = `Time: ${t}s`;
+      if (t <= 0) {
+        clearInterval(timerId);
+        answer(false);
+      }
+    }, 1000);
+  }
+
+  function answer(isRight) {
+    clearInterval(timerId);
+    if (isRight) { score++; correctSnd.play(); }
+    else         { wrongSnd.play(); }
+    idx++;
+    setTimeout(showQuestion, 500);
+  }
+
+  function showResults() {
+    quizCont.classList.add('hidden');
+    resCont.classList.remove('hidden');
+    scoreSpan.textContent = `${score}/${questions.length}`;
+    const pct = (score / questions.length) * 100;
+    (pct >= 50 ? passSnd : failSnd).play();
+  }
+
+  function resetFlow() {
+    clearInterval(timerId);
+    selCont.classList.remove('hidden');
+    quizCont.classList.add('hidden');
+    resCont.classList.add('hidden');
+  }
 });
+
+
 
 /* incase above code faisl
 const quizData = [];

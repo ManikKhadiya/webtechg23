@@ -1,19 +1,21 @@
 document.addEventListener("DOMContentLoaded", () => {
     loadComponent("../components/navbar.html", "navbar-container");
-    loadComponent("../components/footer.html", "footer-container");
     loadComponent("../components/accessibility.html", "accessibility-container");
-
-});
-
-function loadComponent(file, containerId) {
-    fetch(file)
-        .then(response => response.text())
-        .then(html => {
-            const container = document.getElementById(containerId);
-            if (container) container.innerHTML = html;
-        })
-        .catch(error => console.error(`Error loading ${file}:`, error));
-}
+    loadComponent("../components/footer.html", "footer-container");
+  });
+  
+  function loadComponent(path, containerId) {
+    fetch(path)
+      .then(res => {
+        if (!res.ok) throw new Error(`HTTP ${res.status} loading ${path}`);
+        return res.text();
+      })
+      .then(html => {
+        document.getElementById(containerId).innerHTML = html;
+      })
+      .catch(err => console.error(err));
+  }
+  
 
   
 
