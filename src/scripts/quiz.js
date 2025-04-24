@@ -1,3 +1,75 @@
+const correctSound = new Audio("../assets/sfx/correct.mp3");
+const incorrectSound = new Audio("../assets/sfx/incorrect.mp3");
+
+let currentQuestion = 0;
+let score = 0;
+let timeLeft = 30;
+let timer;
+
+document.addEventListener("DOMContentLoaded", () => {
+  fetch("../data/questions.json")
+    .then(res => res.json())
+    .then(data => {
+      const quiz = data.quizzes[0]; // using first quiz
+      loadQuestion(quiz.questions[currentQuestion], quiz.questions);
+      startTimer(quiz.questions);
+    });
+});
+
+function loadQuestion(questionObj, allQuestions) {
+  document.getElementById("question").textContent = questionObj.question;
+  const answersList = document.getElementById("answers");
+  answersList.innerHTML = "";
+
+  questionObj.answers.forEach(answer => {
+    const li = document.createElement("li");
+    li.textContent = answer;
+    li.addEventListener("click", () => handleAnswer(answer, questionObj, allQuestions));
+    answersList.appendChild(li);
+  });
+}
+
+function handleAnswer(selected, questionObj, allQuestions) {
+    if (selected === questionObj.correct) {
+      score++;
+      correctSound.play();
+    } else {
+      incorrectSound.play();
+    }
+  
+    currentQuestion++;
+  
+    if (currentQuestion < allQuestions.length) {
+      setTimeout(() => loadQuestion(allQuestions[currentQuestion], allQuestions), 300);
+    } else {
+      setTimeout(endQuiz, 500);
+    }
+  }
+  
+
+function startTimer(questions) {
+  timer = setInterval(() => {
+    timeLeft--;
+    document.getElementById("time").textContent = timeLeft;
+
+    if (timeLeft <= 0) {
+      clearInterval(timer);
+      endQuiz();
+    }
+  }, 1000);
+}
+
+function endQuiz() {
+  clearInterval(timer);
+  document.getElementById("question-container").classList.add("hidden");
+  const results = document.getElementById("results");
+  const scoreText = document.getElementById("score-text");
+
+  scoreText.textContent = `You scored ${score} out of ${currentQuestion}`;
+  results.classList.remove("hidden");
+}
+
+/* incase above code faisl
 const quizData = [];
 fetch("data/questions.json")
   .then(response => response.json())
@@ -29,11 +101,6 @@ function submitAnswer(index) {
   currentQuestionIndex++;
   loadQuestion();
 }
-
-
-
-/* incase above code faisl
-
 
 const quizData = [
     { question: "What is the capital of France?", options: ["Paris", "London", "Berlin", "Madrid"], correct: 0 },

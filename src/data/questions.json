@@ -1,32 +1,105 @@
 {
-    "categories": {
-        "General Knowledge": [
-            {
-                "question": "What is the capital of France?",
-                "options": ["Paris", "London", "Berlin", "Madrid"],
-                "correct": 0,
-                "difficulty": "easy"
-            },
-            {
-                "question": "Who painted the Mona Lisa?",
-                "options": ["Van Gogh", "Da Vinci", "Picasso", "Michelangelo"],
-                "correct": 1,
-                "difficulty": "medium"
-            }
-        ],
-        "Science": [
-            {
-                "question": "What planet is closest to the Sun?",
-                "options": ["Earth", "Venus", "Mercury", "Mars"],
-                "correct": 2,
-                "difficulty": "easy"
-            },
-            {
-                "question": "What is the chemical symbol for gold?",
-                "options": ["Au", "Ag", "Pb", "Fe"],
-                "correct": 0,
-                "difficulty": "medium"
-            }
+    "quizzes": [
+      {
+        "title": "CS:GO Maps",
+        "questions": [
+          {
+            "question": "Which map has a bombsite called 'A Long'?",
+            "answers": ["Mirage", "Inferno", "Dust II", "Nuke"],
+            "correct": "Dust II"
+          },
+          {
+            "question": "Which map features a site called 'Banana'?",
+            "answers": ["Dust II", "Inferno", "Overpass", "Vertigo"],
+            "correct": "Inferno"
+          },
+          {
+            "question": "What is the main feature of the map Nuke?",
+            "answers": ["Two vertical bombsites", "Snowy terrain", "No bombsites", "No sniper spots"],
+            "correct": "Two vertical bombsites"
+          },
+          {
+            "question": "Which map is set in a Middle Eastern environment?",
+            "answers": ["Dust II", "Inferno", "Cache", "Train"],
+            "correct": "Dust II"
+          }
         ]
-    }
-}
+      },
+      {
+        "title": "CS:GO Weapons",
+        "questions": [
+          {
+            "question": "Which weapon is known for its one-shot headshot capability?",
+            "answers": ["AK-47", "M4A4", "P90", "FAMAS"],
+            "correct": "AK-47"
+          },
+          {
+            "question": "What sniper rifle costs the most in-game?",
+            "answers": ["AWP", "SCAR-20", "SSG 08", "G3SG1"],
+            "correct": "AWP"
+          },
+          {
+            "question": "Which weapon is typically used by terrorists and is powerful but inaccurate?",
+            "answers": ["MAC-10", "Tec-9", "Desert Eagle", "Five-SeveN"],
+            "correct": "Desert Eagle"
+          },
+          {
+            "question": "Which SMG has the highest rate of fire?",
+            "answers": ["MP9", "UMP-45", "MAC-10", "P90"],
+            "correct": "P90"
+          }
+        ]
+      },
+      {
+        "title": "CS:GO Pro Scene",
+        "questions": [
+          {
+            "question": "Which player is nicknamed 's1mple'?",
+            "answers": ["ZywOo", "s1mple", "NiKo", "dev1ce"],
+            "correct": "s1mple"
+          },
+          {
+            "question": "Which team won the PGL Major Stockholm 2021?",
+            "answers": ["G2 Esports", "NaVi", "Astralis", "FURIA"],
+            "correct": "NaVi"
+          },
+          {
+            "question": "Which country is known for producing top-tier CS:GO players?",
+            "answers": ["Brazil", "Russia", "Denmark", "Sweden"],
+            "correct": "Denmark"
+          },
+          {
+            "question": "Who is known as the in-game leader (IGL) of Astralis during their prime?",
+            "answers": ["Xyp9x", "gla1ve", "dupreeh", "Magisk"],
+            "correct": "gla1ve"
+          }
+        ]
+      },
+      {
+        "title": "CS:GO Economy & Mechanics",
+        "questions": [
+          {
+            "question": "How much money do you get for planting the bomb?",
+            "answers": ["$800", "$300", "$150", "$200"],
+            "correct": "$300"
+          },
+          {
+            "question": "What is 'eco round' short for?",
+            "answers": ["Economical round", "Ecosystem round", "Economic strategy", "Economical rotation"],
+            "correct": "Economical round"
+          },
+          {
+            "question": "What happens when a player saves a weapon to the next round?",
+            "answers": ["They lose it", "They sell it", "They keep it", "They drop it"],
+            "correct": "They keep it"
+          },
+          {
+            "question": "Which movement makes no footstep noise?",
+            "answers": ["Walking", "Running", "Jumping", "Crouching"],
+            "correct": "Walking"
+          }
+        ]
+      }
+    ]
+  }
+  
