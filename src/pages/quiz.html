@@ -3,29 +3,44 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>CS:GO Quiz</title>
+  <title>Choose a CS:GO Quiz</title>
+  <link rel="stylesheet" href="../style/main.css" />
   <link rel="stylesheet" href="../style/quiz.css" />
 </head>
 <body>
-  <div id="navbar-container"></div>
+    <div id="navbar-container"></div>
+    
+    <main class="quiz-selection">
+        <h1>Select a CS:GO Quiz</h1>
+    <div class="quiz-options">
+      <div class="quiz-option" onclick="startQuiz('map-knowledge')" title="Test your knowledge of CS:GO map callouts and locations.">
+        Map Knowledge
+      </div>
+      <div class="quiz-option" onclick="startQuiz('weapons')" title="How well do you know CS:GO weapons, stats, and sprays?">
+        Weapons
+      </div>
+      <div class="quiz-option" onclick="startQuiz('pro-scene')" title="Think you know the pro teams and players?">
+        Pro Scene
+      </div>
+      <div class="quiz-option" onclick="startQuiz('fun-facts')" title="Random trivia and facts from the CS:GO universe.">
+        Fun Facts
+      </div>
+    </div>
+    </main>
+    <div class="quiz-selection-container" id="quiz-selection">
+        <h2>Select a Quiz</h2>
+    </div>
+    <div id="quiz-container" class="hidden"></div>
 
-  <main class="quiz-container">
-    <h1>CS:GO Quiz</h1>
-    <div id="timer">Time: <span id="time">30</span>s</div>
-    <div id="question-container">
-      <p id="question">Loading question...</p>
-      <ul id="answers"></ul>
-    </div>
-    <div id="results" class="hidden">
-      <h2>Quiz Complete!</h2>
-      <p id="score-text"></p>
-      <button onclick="location.reload()">Try Again</button>
-    </div>
-  </main>
 
   <div id="footer-container"></div>
 
   <script src="../scripts/main.js" defer></script>
-  <script src="../scripts/quiz.js" defer></script>
+  <script>
+    function startQuiz(quizId) {
+      sessionStorage.setItem("selectedQuiz", quizId);
+      window.location.href = "quiz.html";  // Loads same page but main.js or quiz.js will detect and begin quiz
+    }
+  </script>
 </body>
 </html>

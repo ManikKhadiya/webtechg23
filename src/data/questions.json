@@ -1,105 +1,103 @@
 {
-    "quizzes": [
-      {
-        "title": "CS:GO Maps",
-        "questions": [
-          {
-            "question": "Which map has a bombsite called 'A Long'?",
-            "answers": ["Mirage", "Inferno", "Dust II", "Nuke"],
-            "correct": "Dust II"
-          },
-          {
-            "question": "Which map features a site called 'Banana'?",
-            "answers": ["Dust II", "Inferno", "Overpass", "Vertigo"],
-            "correct": "Inferno"
-          },
-          {
-            "question": "What is the main feature of the map Nuke?",
-            "answers": ["Two vertical bombsites", "Snowy terrain", "No bombsites", "No sniper spots"],
-            "correct": "Two vertical bombsites"
-          },
-          {
-            "question": "Which map is set in a Middle Eastern environment?",
-            "answers": ["Dust II", "Inferno", "Cache", "Train"],
-            "correct": "Dust II"
-          }
-        ]
-      },
-      {
-        "title": "CS:GO Weapons",
-        "questions": [
-          {
-            "question": "Which weapon is known for its one-shot headshot capability?",
-            "answers": ["AK-47", "M4A4", "P90", "FAMAS"],
-            "correct": "AK-47"
-          },
-          {
-            "question": "What sniper rifle costs the most in-game?",
-            "answers": ["AWP", "SCAR-20", "SSG 08", "G3SG1"],
-            "correct": "AWP"
-          },
-          {
-            "question": "Which weapon is typically used by terrorists and is powerful but inaccurate?",
-            "answers": ["MAC-10", "Tec-9", "Desert Eagle", "Five-SeveN"],
-            "correct": "Desert Eagle"
-          },
-          {
-            "question": "Which SMG has the highest rate of fire?",
-            "answers": ["MP9", "UMP-45", "MAC-10", "P90"],
-            "correct": "P90"
-          }
-        ]
-      },
-      {
-        "title": "CS:GO Pro Scene",
-        "questions": [
-          {
-            "question": "Which player is nicknamed 's1mple'?",
-            "answers": ["ZywOo", "s1mple", "NiKo", "dev1ce"],
-            "correct": "s1mple"
-          },
-          {
-            "question": "Which team won the PGL Major Stockholm 2021?",
-            "answers": ["G2 Esports", "NaVi", "Astralis", "FURIA"],
-            "correct": "NaVi"
-          },
-          {
-            "question": "Which country is known for producing top-tier CS:GO players?",
-            "answers": ["Brazil", "Russia", "Denmark", "Sweden"],
-            "correct": "Denmark"
-          },
-          {
-            "question": "Who is known as the in-game leader (IGL) of Astralis during their prime?",
-            "answers": ["Xyp9x", "gla1ve", "dupreeh", "Magisk"],
-            "correct": "gla1ve"
-          }
-        ]
-      },
-      {
-        "title": "CS:GO Economy & Mechanics",
-        "questions": [
-          {
-            "question": "How much money do you get for planting the bomb?",
-            "answers": ["$800", "$300", "$150", "$200"],
-            "correct": "$300"
-          },
-          {
-            "question": "What is 'eco round' short for?",
-            "answers": ["Economical round", "Ecosystem round", "Economic strategy", "Economical rotation"],
-            "correct": "Economical round"
-          },
-          {
-            "question": "What happens when a player saves a weapon to the next round?",
-            "answers": ["They lose it", "They sell it", "They keep it", "They drop it"],
-            "correct": "They keep it"
-          },
-          {
-            "question": "Which movement makes no footstep noise?",
-            "answers": ["Walking", "Running", "Jumping", "Crouching"],
-            "correct": "Walking"
-          }
-        ]
-      }
-    ]
+    "Map Knowledge": {
+      "description": "Identify popular CS:GO maps from images or clues.",
+      "questions": [
+        {
+          "question": "Which map features a bombsite on a bridge?",
+          "answers": ["Dust2", "Overpass", "Inferno", "Mirage"],
+          "correct": "Overpass"
+        },
+        {
+          "question": "Which map has 'A Site' near a palace?",
+          "answers": ["Nuke", "Mirage", "Cache", "Train"],
+          "correct": "Mirage"
+        },
+        {
+          "question": "Where would you find 'Banana'?",
+          "answers": ["Vertigo", "Nuke", "Inferno", "Ancient"],
+          "correct": "Inferno"
+        },
+        {
+          "question": "Which map has 'Heaven' above B site?",
+          "answers": ["Inferno", "Dust2", "Nuke", "Overpass"],
+          "correct": "Nuke"
+        }
+      ]
+    },
+    "Weapons": {
+      "description": "Test your knowledge on CS:GO weapons.",
+      "questions": [
+        {
+          "question": "Which weapon is known as the 'one-tap' king?",
+          "answers": ["AWP", "AK-47", "M4A1-S", "Deagle"],
+          "correct": "AK-47"
+        },
+        {
+          "question": "Which of these is a shotgun?",
+          "answers": ["MP7", "Nova", "P90", "Galil"],
+          "correct": "Nova"
+        },
+        {
+          "question": "Which weapon costs the most?",
+          "answers": ["AWP", "M4A4", "AK-47", "SG 553"],
+          "correct": "AWP"
+        },
+        {
+          "question": "Which gun is most accurate while moving?",
+          "answers": ["Glock", "P90", "UMP-45", "Scout"],
+          "correct": "P90"
+        }
+      ]
+    },
+    "Pro Scene": {
+      "description": "Facts and trivia from professional CS:GO events.",
+      "questions": [
+        {
+          "question": "Which team won the PGL Major Stockholm 2021?",
+          "answers": ["NAVI", "G2", "Faze", "Astralis"],
+          "correct": "NAVI"
+        },
+        {
+          "question": "Who is known as the 'GOAT' of CS:GO?",
+          "answers": ["s1mple", "ZywOo", "coldzera", "device"],
+          "correct": "s1mple"
+        },
+        {
+          "question": "Which country has the most CS:GO Majors?",
+          "answers": ["Sweden", "USA", "Denmark", "Russia"],
+          "correct": "Sweden"
+        },
+        {
+          "question": "Which event had the biggest prize pool?",
+          "answers": ["IEM Rio", "ESL One Cologne", "BLAST Premier", "PGL Antwerp"],
+          "correct": "BLAST Premier"
+        }
+      ]
+    },
+    "Fun Facts": {
+      "description": "Lesser-known facts and easter eggs in CS:GO.",
+      "questions": [
+        {
+          "question": "What does CS:GO stand for?",
+          "answers": ["Counter Strike: General Operations", "Combat Simulation: Go", "Counter-Strike: Global Offensive", "Combat Strategy: Game Over"],
+          "correct": "Counter-Strike: Global Offensive"
+        },
+        {
+          "question": "Which item was once banned in tournaments?",
+          "answers": ["Molotov", "Zeus x27", "Smoke Grenade", "Decoy"],
+          "correct": "Molotov"
+        },
+        {
+          "question": "Which graffiti celebrates an AWP ace?",
+          "answers": ["Olofboost", "Coldzera jump shot", "s1mple's no-scope", "Stewie2k clutch"],
+          "correct": "Coldzera jump shot"
+        },
+        {
+          "question": "Which CS:GO agent says 'Let’s get this done'?",
+          "answers": ["SAS", "Phoenix", "GIGN", "FBI"],
+          "correct": "SAS"
+        }
+      ]
+    }
   }
   

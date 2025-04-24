@@ -1,16 +1,18 @@
 document.addEventListener("DOMContentLoaded", () => {
-    loadComponent("../components/navbar.html", "navbar-container");
-    loadComponent("../components/footer.html", "footer-container");
-  });
-  
-  function loadComponent(file, containerId) {
+    loadComponent("src/components/navbar.html", "navbar-container");
+    loadComponent("src/components/footer.html", "footer-container");
+});
+
+function loadComponent(file, containerId) {
     fetch(file)
-      .then(res => res.text())
-      .then(data => {
-        document.getElementById(containerId).innerHTML = data;
-      })
-      .catch(err => console.error(`Error loading ${file}:`, err));
-  }
+        .then(response => response.text())
+        .then(html => {
+            const container = document.getElementById(containerId);
+            if (container) container.innerHTML = html;
+        })
+        .catch(error => console.error(`Error loading ${file}:`, error));
+}
+
   
 
 
