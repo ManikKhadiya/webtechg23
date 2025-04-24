@@ -1,4 +1,4 @@
-// no longer a module—just a plain script
+// src/scripts/quiz.js
 document.addEventListener("DOMContentLoaded", () => {
   let questionsData = null;
   fetch('../data/questions.json')
@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
     })
     .catch(err => console.error(err));
 
-  // cached DOM refs
+  // DOM references
   const selCont   = document.getElementById('selection-container');
   const optCont   = document.getElementById('quiz-options');
   const quizCont  = document.getElementById('quiz-container');
@@ -24,11 +24,11 @@ document.addEventListener("DOMContentLoaded", () => {
   const retryBtn  = document.getElementById('retry-button');
   const scoreSpan = document.getElementById('score');
 
-  // sound fx
-  const correctSnd = new Audio('../assets/sfx/correct.mp3');
-  const wrongSnd   = new Audio('../assets/sfx/wrong_buzzer.mp3');
-  const passSnd    = new Audio('../assets/sfx/pass.mp3');
-  const failSnd    = new Audio('../assets/sfx/fail.mp3');
+  // Sound effects
+  const correctSnd = new Audio('../assets/audio/correct.mp3');
+  const wrongSnd   = new Audio('../assets/audio/wrong_buzzer.mp3');
+  const passSnd    = new Audio('../assets/audio/result_pass.mp3');
+  const failSnd    = new Audio('../assets/audio/result_fail.mp3');
 
   let questions = [], idx = 0, score = 0, timerId;
   const timeLimit = 15;
@@ -118,6 +118,7 @@ document.addEventListener("DOMContentLoaded", () => {
     resCont.classList.add('hidden');
   }
 });
+
 
 
 

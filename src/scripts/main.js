@@ -1,7 +1,8 @@
+// src/scripts/main.js
 document.addEventListener("DOMContentLoaded", () => {
-    loadComponent("../components/navbar.html", "navbar-container");
+    loadComponent("../components/navbar.html",        "navbar-container");
     loadComponent("../components/accessibility.html", "accessibility-container");
-    loadComponent("../components/footer.html", "footer-container");
+    loadComponent("../components/footer.html",        "footer-container");
   });
   
   function loadComponent(path, containerId) {
@@ -15,6 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
       })
       .catch(err => console.error(err));
   }
+  
   
 
   
