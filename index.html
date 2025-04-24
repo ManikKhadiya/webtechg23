@@ -1,23 +1,39 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <title>Group 23 Website</title>
-    <link rel="stylesheet" href="style/main.css">
+    <link rel="stylesheet" href="style/main.css"> 
+    <link rel="stylesheet" href="style/quiz.css"> 
     <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
         <h1 class="title">Quiz App</h1>
-
         <div id="navbar-container"></div>
-
-        <div class="header"></div>
+        <h2 id="quiz-title">PICK A CATEGORY!</h2>
     </header>
-    
+
     <main>
-        <p>This is a basic webpage for the initial commit.</p>
-        <button id="clickMe">Click Me</button>
+        <div class="quiz-selection">
+            <button class="btn quiz-btn" 
+                onclick="goToCategory()">Minecraft Quizzes</button>
+    
+            <button class="btn quiz-btn" 
+                onclick="goToCategory()">Category 2</button>
+    
+            <button class="btn quiz-btn" 
+                onclick="goToCategory()">Category 3</button>
+    
+            <button class="btn quiz-btn" 
+                onclick="goToCategory()">Category 4</button>
+        </div>
     </main>
+    
+    <script>
+        function goToCategory(){ 
+            window.location.href = 'pages/category1.html';
+        }
+    </script>
     <script src="scripts/main.js"></script>
 </body>
 </html>

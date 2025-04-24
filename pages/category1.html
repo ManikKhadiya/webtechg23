@@ -16,48 +16,40 @@
     <main>
         <div class="quiz-selection">
             <button class="btn quiz-btn" 
-                onmouseover="showDescription(this, 'Mobs & Monsters: Learn about mobs, their behavior, and how to deal with them in the game!')" 
-                onmouseout="hideDescription(this)"
+                onmouseover="showDescription(this, 'Learn about mobs, their behavior, and how to deal with them!')" 
+                onmouseout="hideDescription(this, 'Mobs & Monsters')" 
                 onclick="startQuiz('mobs')">Mobs & Monsters</button>
 
             <button class="btn quiz-btn" 
-                onmouseover="showDescription(this, 'Mechanics: Test your knowledge about crafting, fighting, and game mechanics!')" 
-                onmouseout="hideDescription(this)"
+                onmouseover="showDescription(this, 'Test your knowledge about crafting, fighting, and game mechanics!')" 
+                onmouseout="hideDescription(this, 'Mechanics: Crafting and Fighting')" 
                 onclick="startQuiz('mechanics')">Mechanics: Crafting and Fighting</button>
 
             <button class="btn quiz-btn" 
-                onmouseover="showDescription(this, 'Storyline: Dive into the story behind Minecraft and test your knowledge of the game’s lore!')" 
-                onmouseout="hideDescription(this)"
+                onmouseover="showDescription(this, 'Dive into the Minecraft story and test your knowledge of the game’s lore!')" 
+                onmouseout="hideDescription(this, 'Storyline')" 
                 onclick="startQuiz('storyline')">Storyline</button>
 
             <button class="btn quiz-btn" 
-                onmouseover="showDescription(this, 'General Knowledge: A general knowledge quiz with a time challenge. How fast can you answer?')" 
-                onmouseout="hideDescription(this)"
+                onmouseover="showDescription(this, 'Test your general knowledge with a timed quiz challenge!')" 
+                onmouseout="hideDescription(this, 'General Knowledge (Timed Quiz)')" 
                 onclick="startQuiz('general')">General Knowledge (Timed Quiz)</button>
         </div>
     </main>
 
     <script>
         function showDescription(button, description) {
-            button.innerText = description;
+            button.innerText = description;n
         }
 
-        function hideDescription(button) {
-            if (button.innerText.includes('Mobs & Monsters')) {
-                button.innerText = 'Mobs & Monsters';
-            } else if (button.innerText.includes('Mechanics')) {
-                button.innerText = 'Mechanics: Crafting and Fighting';
-            } else if (button.innerText.includes('Storyline')) {
-                button.innerText = 'Storyline';
-            } else if (button.innerText.includes('General Knowledge')) {
-                button.innerText = 'General Knowledge (Timed Quiz)';
-            }
+        function hideDescription(button, defaultText) {
+            button.innerText = defaultText;
         }
 
         function startQuiz(quizName) {
             window.location.href = `start-quiz.html?quiz=${quizName}`;
         }
     </script>
-    <script src="..//scripts/main.js"></script>
+    <script src="../scripts/main.js"></script>
 </body>
 </html>
