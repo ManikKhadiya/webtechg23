@@ -16,24 +16,25 @@
     <main>
         <div class="quiz-selection">
             <button class="btn quiz-btn" 
-                onclick="goToCategory()">Minecraft Quizzes</button>
+                onclick="goToCategory('minecraft')">Minecraft Quizzes</button>
     
             <button class="btn quiz-btn" 
-                onclick="goToCategory()">Category 2</button>
+                onclick="goToCategory('category2')">Category 2</button>
     
             <button class="btn quiz-btn" 
-                onclick="goToCategory()">Category 3</button>
+                onclick="goToCategory('category3')">Category 3</button>
     
             <button class="btn quiz-btn" 
-                onclick="goToCategory()">Category 4</button>
+                onclick="goToCategory('category4')">Category 4</button>
         </div>
     </main>
-    
+
     <script>
-        function goToCategory(){ 
-            window.location.href = 'pages/category1.html';
+        function goToCategory(category) {
+            window.location.href = `pages/category1.html?quiz=${category}`;
         }
     </script>
+
     <script src="scripts/main.js"></script>
 </body>
 </html>
