@@ -1,3 +1,6 @@
+/* Global stylesheet for the website*/
+
+/* Body styling */
 body {
   font-family: 'VT323', monospace;
   text-align: center;
@@ -6,6 +9,7 @@ body {
   margin: 0;
 }
 
+/* Header styling */
 header {
   background: #3e6e91; 
   display: flex;
@@ -14,12 +18,14 @@ header {
   text-align: left;
 }
 
+/* Main title styling inside the header */
 header h1 {
   color: white;
   font-size: 30px;
   margin-left: 30px;
 }
 
+/* Subtitle styling inside the header */
 header h2 {
   background: #448fc5;
   color: white;
@@ -29,6 +35,7 @@ header h2 {
   padding: 30px 30px; 
 }
 
+/* Navigation bar styling */
 nav ul {
   list-style: none;
   background: #3e6e91;
@@ -39,6 +46,7 @@ nav ul {
   width: 100%;
 }
 
+/* Style for individual page links */
 nav a {
   text-decoration: none;
   display: block;
@@ -46,6 +54,7 @@ nav a {
   padding: 20px;
 }
 
+/* Effect for when user hovers over the page links*/
 nav a:hover {
   background: #355a74;
 }
