@@ -1,26 +1,34 @@
+// src/scripts/accessibility.js
 document.addEventListener("DOMContentLoaded", () => {
-  const icon = document.getElementById("accessibility-toggle");
-  const menu = document.getElementById("accessibility-menu");
-  const contrastToggle = document.getElementById("toggle-contrast");
-  const textToggle = document.getElementById("toggle-text");
-  const volumeSlider = document.getElementById("volume-slider");
+  // wait-for helper
+  const waitFor = (selector, cb) => {
+    const el = document.querySelector(selector);
+    if (el) return cb(el);
+    setTimeout(() => waitFor(selector, cb), 50);
+  };
 
-  icon.addEventListener("click", () => {
-    menu.classList.toggle("hidden");
-  });
+  // once the icon is injected...
+  waitFor("#accessibility-toggle", (icon) => {
+    const menu = document.getElementById("accessibility-menu");
+    const contrast = document.getElementById("toggle-contrast");
+    const text = document.getElementById("toggle-text");
+    const volume = document.getElementById("volume-slider");
 
-  contrastToggle.addEventListener("change", (e) => {
-    document.body.classList.toggle("high-contrast", e.target.checked);
-  });
+    icon.addEventListener("click", () => {
+      menu.classList.toggle("hidden");
+    });
 
-  textToggle.addEventListener("change", (e) => {
-    document.body.classList.toggle("large-text", e.target.checked);
-  });
+    contrast.addEventListener("change", e => {
+      document.body.classList.toggle("high-contrast", e.target.checked);
+    });
 
-  volumeSlider.addEventListener("input", (e) => {
-    const volume = parseFloat(e.target.value);
-    document.querySelectorAll("audio").forEach((audio) => {
-      audio.volume = volume;
+    text.addEventListener("change", e => {
+      document.body.classList.toggle("large-text", e.target.checked);
+    });
+
+    volume.addEventListener("input", e => {
+      const v = parseFloat(e.target.value);
+      document.querySelectorAll("audio").forEach(a => a.volume = v);
     });
   });
 });
