@@ -1,42 +1,26 @@
-document.addEventListener("DOMContentLoaded", function () {
-  document.getElementById("accessibility-icon").addEventListener("change", function() {
-    document.body.style.backgroundColor = this.checked ? "#000" : "#f4f4f4";
-    document.body.style.color = this.checked ? "#fff" : "#000";
+document.addEventListener("DOMContentLoaded", () => {
+  const icon = document.getElementById("accessibility-toggle");
+  const menu = document.getElementById("accessibility-menu");
+  const contrastToggle = document.getElementById("toggle-contrast");
+  const textToggle = document.getElementById("toggle-text");
+  const volumeSlider = document.getElementById("volume-slider");
+
+  icon.addEventListener("click", () => {
+    menu.classList.toggle("hidden");
   });
 
-  document.getElementById("large-text-toggle").addEventListener("change", function() {
-    document.body.style.fontSize = this.checked ? "1.5em" : "1em";
+  contrastToggle.addEventListener("change", (e) => {
+    document.body.classList.toggle("high-contrast", e.target.checked);
   });
 
-  document.addEventListener("keydown", function (event) {
-    let options = document.querySelectorAll(".quiz-option");
-    let index = Array.from(options).findIndex(option => option === document.activeElement);
-    
-    if (event.key === "ArrowDown") {
-      index = (index + 1) % options.length;
-      options[index].focus();
-    } else if (event.key === "ArrowUp") {
-      index = (index - 1 + options.length) % options.length;
-      options[index].focus();
-    } else if (event.key === "Enter") {
-      options[index].click();
-    }
+  textToggle.addEventListener("change", (e) => {
+    document.body.classList.toggle("large-text", e.target.checked);
   });
-    
-  function setupAccessibility() {
-    const icon = document.querySelector('.accessibility-icon');
-    const menu = document.querySelector('#accessibility-menu');
 
-    if (icon && menu) {
-        icon.addEventListener('click', function () {
-            menu.classList.toggle('hidden');
-        });
-    } else {
-        console.error("Accessibility elements not found");
-    }
-}
-
-// Run after DOM is loaded
-document.addEventListener("DOMContentLoaded", setupAccessibility);
-
+  volumeSlider.addEventListener("input", (e) => {
+    const volume = parseFloat(e.target.value);
+    document.querySelectorAll("audio").forEach((audio) => {
+      audio.volume = volume;
+    });
+  });
 });
