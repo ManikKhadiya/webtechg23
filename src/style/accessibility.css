@@ -1,42 +1,44 @@
-/* High Contrast Mode */
-body.high-contrast {
-    background: black;
-    color: yellow;
-}
-
-.high-contrast button {
-    background: yellow;
-    color: black;
-}
-
-/* Large Text Mode */
-body.large-text {
-    font-size: 1.5em;
-}
-
 .accessibility-icon {
     position: fixed;
-    top: 10px;
-    right: 10px;
-    cursor: pointer;
-    font-size: 24px;
-    background: rgb(0, 4, 255);
-    color: white;
+    top: 15px;
+    right: 15px;
+    background: #000;
+    color: #fff;
     padding: 10px;
     border-radius: 50%;
-}
-
-#accessibility-menu {
-    display: none;
+    cursor: pointer;
+    z-index: 999;
+    font-size: 24px;
+  }
+  
+  .accessibility-menu {
     position: fixed;
-    top: 50px;
-    right: 10px;
-    background: white;
-    padding: 10px;
+    top: 60px;
+    right: 15px;
+    background: #fff;
+    color: #000;
+    padding: 15px;
     border: 1px solid #ccc;
-    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
-}
-
-#accessibility-menu.hidden {
+    border-radius: 8px;
+    z-index: 998;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .accessibility-menu label {
+    display: block;
+    margin: 10px 0;
+  }
+  
+  .high-contrast {
+    background-color: #000 !important;
+    color: #fff !important;
+  }
+  
+  .large-text {
+    font-size: 1.25em !important;
+  }
+  
+  .hidden {
     display: none;
-}
+  }
+  
