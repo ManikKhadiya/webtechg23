@@ -39,6 +39,18 @@ document.addEventListener("DOMContentLoaded", () => {
       resetFlow();
       showOptions();
     });
+
+    // at the bottom of initQuiz():
+    const randBtn = document.getElementById('random-quiz-btn');
+    if (randBtn) {
+      randBtn.addEventListener('click', () => {
+        // take all quiz keys, pick one randomly:
+        const keys = Object.keys(questionsData);
+        const randomKey = keys[Math.floor(Math.random() * keys.length)];
+        // start that quiz
+        startQuiz(randomKey);
+      });
+    }
   }
 
   function showOptions() {
