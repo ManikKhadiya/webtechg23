@@ -1,3 +1,4 @@
+/*Again very similair to the card stlying from my first two just a 2x2 grid instead*/
 #cards {
 	display: grid;
 	grid-template-columns: repeat(auto-fill, 300px);
@@ -48,6 +49,7 @@
 	background-color: var(--incorrect);
 	}
 
+/*These next 3 are new but very simple, just making these elements look nice*/
 .question-number {
 	font-size: 1.25rem;
 	text-align: center;
@@ -71,7 +73,7 @@
 	padding: 12px 24px;
 	font-size: 1rem;
 	font-weight: 500;
-	color: #fff;
+	color: var(--text-dark);
 	background-color: var(--colour-dark);
 	border: none;
 	border-radius: 6px;

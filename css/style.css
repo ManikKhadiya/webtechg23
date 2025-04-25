@@ -1,3 +1,4 @@
+/*Global colours*/
 :root {
 	--primary-light: #FFFCF2;
 	--primary-dark: #252422 ;
@@ -27,7 +28,7 @@ body {
 	align-items: center;
 	min-height: 100vh;
 	}
-
+/*Global header design*/
 header {
 	width: 100%;
 	background-color: var(--colour-dark);
@@ -49,7 +50,7 @@ header h1 {
 	max-width: 900px;
 	padding: 0 20px;
 	}
-
+/*Global footer design*/
 footer {
 	width: 100%;
 	background-color: var(--primary-dark);

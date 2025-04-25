@@ -1,3 +1,5 @@
+/*This is practically identical to the console chronology css and was copied in from there and changed slightly so wont comment it all again*/
+
 #slots {
 	display: flex;
 	flex-wrap: wrap;
@@ -95,7 +97,7 @@
 	padding: 12px 24px;
 	font-size: 1rem;
 	font-weight: 500;
-	color: #fff;
+	color: var(--text-dark);
 	background-color: var(--colour-dark);
 	border: none;
 	border-radius: 6px;
