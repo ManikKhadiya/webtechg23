@@ -1,33 +1,42 @@
-.hidden { display: none; }
+/* quiz.css */
 
+/* Container for your selection buttons */
 #quiz-options {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 1rem;
+  margin: 2rem 0;
 }
 
+/* Each quiz-choice button */
 .quiz-option {
-  padding: 0.8rem 1.2rem;
-  background: #444;
+  background: #007bff;
   color: #fff;
   border: none;
-  border-radius: 5px;
+  padding: 0.8rem 1.2rem;
+  border-radius: 6px;
+  font-size: 1rem;
   cursor: pointer;
+  transition: background 0.2s ease;
 }
 
 .quiz-option:hover {
-  background: #666;
+  background: #0056b3;
 }
 
-#quiz-container, #results-container {
+/* Quiz question area */
+#quiz-container,
+#results-container {
   text-align: center;
   margin-top: 2rem;
 }
 
+/* Answer list */
 #answer-list {
   list-style: none;
   padding: 0;
+  margin: 1rem 0;
 }
 
 #answer-list li {
@@ -35,16 +44,23 @@
 }
 
 #answer-list button {
-  padding: 0.6rem 1rem;
-  width: 100%;
-  max-width: 300px;
   background: #333;
   color: #fff;
   border: none;
+  padding: 0.5rem 1rem;
+  width: 100%;
+  max-width: 300px;
   border-radius: 4px;
   cursor: pointer;
+  transition: background 0.2s ease;
 }
 
 #answer-list button:hover {
   background: #555;
+}
+
+/* Timer display */
+#question-timer {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
 }

@@ -1,67 +1,57 @@
 /* accessibility.css */
 
-/* (Old flex layout removed)
-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+/* Container inside header */
+.accessibility-wrapper {
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  transform: translateY(-50%);
 }
-*/
 
-header {
-    position: relative;
-    text-align: center;
-    padding: 10px 0; /* adjust vertical padding as you like */
-  }
-  
-  /* Center the nav inside the header */
-  #navbar-container {
-    display: inline-block;
-  }
-  
-  /* Icon styling and absolute positioning */
-  .accessibility-icon {
-    position: absolute;
-    top: 50%;
-    right: 15px;           /* distance from right edge */
-    transform: translateY(-50%);
-    cursor: pointer;
-    width: 50px;
-    height: 50px;
-    z-index: 100;          /* ensure it stays on top */
-  }
-  
-  /* The menu that drops down */
-  .accessibility-menu {
-    position: absolute;
-    top: 70px;             /* adjust to sit just below header */
-    right: 15px;
-    background: #fff;
-    color: #000;
-    padding: 15px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
-    z-index: 99;
-  }
-  
-  /* Hidden class to toggle menu visibility */
-  .accessibility-menu.hidden {
-    display: none;
-  }
-  
-  /* High-contrast mode */
-  body.high-contrast {
-    background-color: #000 !important;
-    color: #fff !important;
-  }
-  body.high-contrast * {
-    background-color: transparent !important;
-    color: #fff !important;
-  }
-  
-  /* Large-text mode */
-  body.large-text {
-    font-size: 1.25em !important;
-  }
-  
+/* Icon */
+.accessibility-icon {
+  cursor: pointer;
+  width: 32px;
+  height: 32px;
+}
+
+/* Dropdown */
+.accessibility-menu {
+  position: absolute;
+  top: 40px;
+  right: 0;
+  background: #fff;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  z-index: 100;
+  width: 180px;
+}
+
+.accessibility-menu.hidden {
+  display: none;
+}
+
+.accessibility-menu h3 {
+  margin-top: 0;
+  font-size: 1em;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 6px;
+}
+
+.accessibility-menu label {
+  display: block;
+  margin: 8px 0;
+  font-size: 0.9em;
+}
+
+/* High-contrast & large-text toggles */
+body.high-contrast {
+  background: #000 !important;
+  color: #fff !important;
+}
+
+body.large-text {
+  font-size: 1.2em !important;
+}
