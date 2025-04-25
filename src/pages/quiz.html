@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>CS:GO Quiz Hub</title>
   <link rel="stylesheet" href="../style/main.css" />
+  <link rel="stylesheet" href="../style/style.css">
   <link rel="stylesheet" href="../style/quiz.css" />
   <link rel="stylesheet" href="../style/accessibility.css" />
 </head>
@@ -15,8 +16,15 @@
   </header>
 
   <main>
+    <!-- hero -->
+    <section class="hero">
+      <h1>Welcome to the CS:GO Quiz Selection Hub!</h1>
+      <p>Test your knowledge with a variety of fun CS:GO quizzes!</p>
+      <a href="#" class="cta-button" onclick="startRandomQuiz()">Start a Random Quiz</a>  <!--replace in js where index-->
+    </section>
+
     <!-- Quiz Selection -->
-    <section id="selection-container">
+    <section id="quiz-selection-container">
       <h1>Select a CS:GO Quiz</h1>
       <div id="quiz-options"></div>
     </section>
@@ -42,6 +50,7 @@
 
   <script src="../scripts/main.js" defer></script>
   <script src="../scripts/accessibility.js" defer></script>
+  <script src="../scripts/randomQ.js" defer></script>
   <script src="../scripts/quiz.js" defer></script>
 </body>
 </html>

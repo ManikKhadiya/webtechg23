@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // DOM references
   const selCont   = document.getElementById('selection-container');
   const optCont   = document.getElementById('quiz-options');
-  const quizCont  = document.getElementById('quiz-container');
+  const quizCont  = document.getElementById('quiz-selection-container');
   const resCont   = document.getElementById('results-container');
   const timerDisp = document.getElementById('question-timer');
   const qText     = document.getElementById('question-text');
