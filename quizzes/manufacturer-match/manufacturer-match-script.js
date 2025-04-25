@@ -81,7 +81,7 @@ checkBtn.addEventListener('click', () => {
 				if (child.dataset.manufacturer === man) {
 					  score++;
 					  child.classList.add('correct');
-				} else if {
+				} else {
 					  child.classList.add('incorrect');
 					}
 				}

@@ -21,7 +21,7 @@
 
 body {
 	background-color: var(--primary-light);
-	color: var(--text);
+	color: var(--text-dark);
 	font-family: 'Roboto', sans-serif;
 	display: flex;
 	flex-direction: column;
