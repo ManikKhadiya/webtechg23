@@ -25,10 +25,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const scoreSpan = document.getElementById('score');
 
   // Sound effects
-  const correctSnd = new Audio('../assets/audio/correct.mp3');
-  const wrongSnd   = new Audio('../assets/audio/wrong_buzzer.mp3');
-  const passSnd    = new Audio('../assets/audio/result_pass.mp3');
-  const failSnd    = new Audio('../assets/audio/result_fail.mp3');
+  const correctSnd = new Audio('../assets/sfx/correct.mp3');
+  const wrongSnd   = new Audio('../assets/sfx/wrong_buzzer.mp3');
+  const passSnd    = new Audio('../assets/sfx/result_pass.mp3');
+  const failSnd    = new Audio('../assets/sfx/result_fail.mp3');
 
   let questions = [], idx = 0, score = 0, timerId;
   const timeLimit = 15;
