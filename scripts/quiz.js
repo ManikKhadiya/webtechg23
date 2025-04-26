@@ -136,46 +136,45 @@ const questions = {
     ]
 };
 
-let currentQuiz = [];
-let currentQuizName = "";
-let currentQuestionIndex = 0;
-let score = 0;
-let timerInterval;
-let timeLeft = 30;
+var currentQuiz = [];
+var currentQuizName = "";
+var currentQuestionIndex = 0;
+var score = 0;
+var timerInterval;
+var timeLeft = 30;
 
-const questionText = document.getElementById("question");
-const answerButtons = document.getElementById("answer-buttons");
-const scoreHeader = document.getElementById("score-header");
-const timerDisplay = document.getElementById("timer");
-const timerContainer = document.getElementById("timer-container");
+var questionText = document.getElementById("question");
+var answerButtons = document.getElementById("answer-buttons");
+var scoreHeader = document.getElementById("score-header");
+var timerDisplay = document.getElementById("timer");
+var timerContainer = document.getElementById("timer-container");
 
 // Function to start the quiz
 function startQuiz(quizName) {
-    // Set quiz name
-    currentQuizName = quizName; 
+     // Set quiz name
+    currentQuizName = quizName;
     // Get questions for the selected quiz
     currentQuiz = questions[quizName];
-    // Go to the first question
     currentQuestionIndex = 0;
-    // Reset score
+    // Go to the first question
     score = 0;
     // Show first question
+    updateScoreHeader();
+    // Update the score header
     showQuestion();
-     // Update the score header
-    updateScoreHeader(quizName);
 
     // If the general knowledge quiz is selected set up timer
     if (quizName === "general") {
         // Set timer to 30 seconds
         timeLeft = 30;
-        // Update timer display
         timerDisplay.textContent = timeLeft;
-        // Make the timer visable on the page
+        // Update timer display
         timerContainer.style.display = "block";
         // Start timer
         startTimer();
     // If any othrer quiz is selected 
-    } else {
+    } 
+    else {
         // Stop timer
         clearInterval(timerInterval);
         // Hide timer from page
@@ -188,41 +187,59 @@ function showQuestion() {
     // Reset the page 
     resetState();
     // Get next question
-    const currentQuestion = currentQuiz[currentQuestionIndex];
+    var currentQuestion = currentQuiz[currentQuestionIndex];
     // Display question
     questionText.innerText = currentQuestion.question;
 
     // If the question type is image-choice create image buttons 
     if (currentQuestion.type === "image-choice") {
-        currentQuestion.answers.forEach(answer => {
+        // For each question
+        for (var i = 0; i < currentQuestion.answers.length; i++) {
+            var answer = currentQuestion.answers[i];
             // Create image element
-            const img = document.createElement("img");
+            var img = document.createElement("img");
             // Set the image source to the answers image
             img.src = answer.src;
             // Add class for styling
-            img.classList.add("image-option");
-            img.addEventListener("click", () => selectAnswer(answer.correct));
+            img.className = "image-option";
+
+            // When an image is clicked check if its correct
+            img.onclick = function(correct) {
+                return function() {
+                    selectAnswer(correct);
+                };
+            }
+            (answer.correct);
+            // Add image to page
             answerButtons.appendChild(img);
-        });
+        }
+    }
     // For multiple-choice and true-false questions
-    } else {
-        currentQuestion.answers.forEach(answer => {
+    else {
+        for (var j = 0; j < currentQuestion.answers.length; j++) {
             // Create button element
-            const button = document.createElement("button");
+            var answerBtn = document.createElement("button");
             // Set the button text
-            button.innerText = answer.text;
+            answerBtn.innerText = currentQuestion.answers[j].text;
             // Add class for styling
-            button.classList.add("btn");
-            button.addEventListener("click", () => selectAnswer(answer.correct));
-            answerButtons.appendChild(button);
-        });
+            answerBtn.className = "btn";
+            // When a buttn is clicked check if its correct
+            answerBtn.onclick = function(correct) {
+                return function() {
+                    selectAnswer(correct);
+                };
+            }
+            (currentQuestion.answers[j].correct);
+            // Add button to pagr
+            answerButtons.appendChild(answerBtn);
+        }
     }
 }
 
 // Function to get the quiz name selected from the URL
 function getQuizFromURL() {
     // Get URL
-    const params = new URLSearchParams(window.location.search);
+    var params = new URLSearchParams(window.location.search);
     // Return the quiz name 
     return params.get("quiz");
 }
@@ -230,8 +247,8 @@ function getQuizFromURL() {
 // Load the quiz
 window.onload = () => {
     // Get the quiz name
-    const quizName = getQuizFromURL();
-    // If the quiz name is valid start the quiz
+    var quizName = getQuizFromURL();
+    // If the quiz name is valid start the
     if (quizName && questions[quizName]) {
         startQuiz(quizName);
     }
@@ -252,7 +269,8 @@ function selectAnswer(correct) {
         // Show alert for correct answer
         alert("Correct!");
     // if the answer chosen is wrong
-    } else {
+    } 
+    else {
         // Show alert for wrong answer
         alert("Wrong answer.");
     }
@@ -267,7 +285,8 @@ function selectAnswer(correct) {
         // show next question
         showQuestion();
     // If there are no more questions
-    } else {
+    } 
+    else {
         // Display score
         showScore();
     }
@@ -277,12 +296,14 @@ function selectAnswer(correct) {
 function showScore() {
     clearInterval(timerInterval);
     // stop the timer
-    const quizName = getQuizFromURL();
+    var quizName = getQuizFromURL();
     // Get quiz name
     localStorage.setItem('quizScore', score);
 
-    // Play victory sound
-    new Audio("sounds/victory.mp3").play();
+    // Play victory audio
+    var audio = new Audio("../audios/victory.mp3");
+    audio.play();
+
     setTimeout(() => {
         // Go to the end page after the sound plays
         window.location.href = `end-quiz.html?quiz=${quizName}`;
@@ -291,9 +312,9 @@ function showScore() {
 }
 
 // Update the score header  with the current score
-function updateScoreHeader(quizName = "Quiz") {
-    // Display quiz name and score
-    scoreHeader.innerText = `${quizName} QUIZ: SCORE: ${score}`;
+function updateScoreHeader() {
+    // Display the score
+    scoreHeader.innerText = `SCORE: ${score}`;
 }
 
 // Function to start the quiz timer

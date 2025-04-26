@@ -3,7 +3,7 @@
 <head>
     <title>End of Quiz</title>
     <!-- link to general css stylesheet-->
-    <link rel="stylesheet" href="../style/main.css"> 
+    <link rel="stylesheet" href="../main.css"> 
     <!-- link to quiz specific css stylesheet-->
     <link rel="stylesheet" href="../style/quiz.css"> 
     <!-- Import pixel style font from Google Fonts -->
@@ -12,11 +12,11 @@
 <body>
   <header>
     <!-- Main title of the app -->
-    <h1 class="title">Quiz App</h1>
+    <h1 class="title">Gaming Quiz App</h1>
     <!-- Navigation bar placeholder (loaded using javascript)-->
     <div id="navbar-container"></div>
     <!-- Subtitle for page-->
-    <h2 id="quiz-title"></h2>
+    <h2>QUIZ COMPLETE!</h2>
   </header>
 
   <main>
@@ -39,26 +39,23 @@
 
   <script>
     // Get the quiz score from the local storage 
-    const score = localStorage.getItem('quizScore');
+    var score = localStorage.getItem('quizScore');
     // Display the score 
     document.getElementById('score').textContent = score;
 
     // Get the quiz name from the URL (needed to retry quiz)
     function getQuizFromURL() {
-        const params = new URLSearchParams(window.location.search);
+        var params = new URLSearchParams(window.location.search);
         return params.get("quiz");
     }
 
     // Function to retry the quiz the user just attempted
     function retryQuiz() {
-        const quizName = getQuizFromURL();
-        
-        if (quizName) {
-          // Reset stored score
-          localStorage.removeItem('quizScore'); 
-          // Go to quiz starting page for that specific quiz
-          window.location.href = `start-quiz.html?quiz=${quizName}`; 
-        } 
+        var quizName = getQuizFromURL();
+        // Reset stored score
+        localStorage.removeItem('quizScore'); 
+        // Go to quiz starting page for that specific quiz
+        window.location.href = `start-quiz.html?quiz=${quizName}`; 
     }
 
     // Function to take user back to the Minecraft category page
@@ -73,6 +70,6 @@
   </script>
 
   <!-- Load main external javascript-->
-  <script src="../scripts/main.js"></script>
+  <script src="../main.js"></script>
 </body>
 </html> 

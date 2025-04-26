@@ -27,7 +27,7 @@
 /* Container that holds the answer buttons*/
 #answer-buttons {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr 1fr;
     gap: 40px;
     width: 600px;
     margin: 0 auto;
