@@ -13,22 +13,22 @@ document.addEventListener("DOMContentLoaded", () => {
     .catch(err => console.error(err));
 
   // DOM references
-  const selCont   = document.getElementById('selection-container');
-  const optCont   = document.getElementById('quiz-options');
-  const quizCont  = document.getElementById('quiz-selection-container');
-  const resCont   = document.getElementById('results-container');
+  const selectionCont = document.getElementById('quiz-selection-container');
+  const quizOptCont = document.getElementById('quiz-options');
+  //const quizCont = document.getElementById('quiz-selection-container');
+  const resultsCont = document.getElementById('results-container');
   const timerDisp = document.getElementById('question-timer');
-  const qText     = document.getElementById('question-text');
-  const ansList   = document.getElementById('answer-list');
-  const skipBtn   = document.getElementById('skip-button');
-  const retryBtn  = document.getElementById('retry-button');
+  const QuesTxt = document.getElementById('question-text');
+  const ansList = document.getElementById('answer-list');
+  const skipBtn = document.getElementById('skip-button');
+  const retryBtn = document.getElementById('retry-button');
   const scoreSpan = document.getElementById('score');
 
   // sfx
   const correctSnd = new Audio('../assets/sfx/correct.mp3');
-  const wrongSnd   = new Audio('../assets/sfx/incorrect.mp3');
-  const passSnd    = new Audio('../assets/sfx/pass.mp3');
-  const failSnd    = new Audio('../assets/sfx/fail.mp3');
+  const wrongSnd = new Audio('../assets/sfx/incorrect.mp3');
+  const passSnd = new Audio('../assets/sfx/pass.mp3');
+  const failSnd = new Audio('../assets/sfx/fail.mp3');
 
   let questions = [], idx = 0, score = 0, timerId;
   const timeLimit = 15;
@@ -54,25 +54,25 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function showOptions() {
-    selCont.classList.remove('hidden');
+    selectionCont.classList.remove('hidden');
     quizCont.classList.add('hidden');
-    resCont.classList.add('hidden');
-    optCont.innerHTML = '';
+    resultsCont.classList.add('hidden');
+    quizOptCont.innerHTML = '';
     Object.keys(questionsData).forEach(key => {
       const qz = questionsData[key];
       const btn = document.createElement('button');
-      btn.className = 'quiz-option';
+      btn.className = 'quiz-options';
       btn.textContent = qz.title;
       btn.title = qz.description;
       btn.onclick = () => startQuiz(key);
-      optCont.appendChild(btn);
+      quizOptCont.appendChild(btn);
     });
   }
 
   function startQuiz(key) {
     questions = questionsData[key].questions;
     idx = 0; score = 0;
-    selCont.classList.add('hidden');
+    selectionCont.classList.add('hidden');
     quizCont.classList.remove('hidden');
     showQuestion();
   }
@@ -80,7 +80,7 @@ document.addEventListener("DOMContentLoaded", () => {
   function showQuestion() {
     if (idx >= questions.length) return showResults();
     const q = questions[idx];
-    qText.textContent = q.question;
+    QuesTxt.textContent = q.question;
     ansList.innerHTML = '';
     q.answers.forEach(opt => {
       const li = document.createElement('li');
@@ -117,7 +117,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function showResults() {
     quizCont.classList.add('hidden');
-    resCont.classList.remove('hidden');
+    resultsCont.classList.remove('hidden');
     scoreSpan.textContent = `${score}/${questions.length}`;
     const pct = (score / questions.length) * 100;
     (pct >= 50 ? passSnd : failSnd).play();
@@ -125,9 +125,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function resetFlow() {
     clearInterval(timerId);
-    selCont.classList.remove('hidden');
+    selectionCont.classList.remove('hidden');
     quizCont.classList.add('hidden');
-    resCont.classList.add('hidden');
+    resultsCont.classList.add('hidden');
   }
 });
 

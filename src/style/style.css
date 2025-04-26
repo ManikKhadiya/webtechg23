@@ -25,12 +25,12 @@ nav ul li a {
     text-decoration: none;
 }
 .accessibility-icon {
-    position: fixed;
-    top: 10px;
-    right: 10px;
+    /* position: fixed; */
+    /* top: 50px; */
+    /* right: 50px; */
     cursor: pointer;
     font-size: 24px;
-    background: #000;
+    background: #ffcc00;
     color: #fff;
     padding: 10px;
     border-radius: 50%;
@@ -38,6 +38,10 @@ nav ul li a {
 
 .hidden {
     display: none !important; /* Ensure it hides when applied */
+}
+
+.shown {
+    display: block !important; /* Ensure it shows when applied */
 }
 
 #accessibility-menu {
