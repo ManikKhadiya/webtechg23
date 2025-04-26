@@ -3,7 +3,7 @@
 <head>
     <title>End of Quiz</title>
     <!-- link to general css stylesheet-->
-    <link rel="stylesheet" href="../main.css"> 
+    <link rel="stylesheet" href="../../main.css"> 
     <!-- link to quiz specific css stylesheet-->
     <link rel="stylesheet" href="../style/minecraft.css"> 
     <!-- Import pixel style font from Google Fonts -->
@@ -55,21 +55,21 @@
         // Reset stored score
         localStorage.removeItem('quizScore'); 
         // Go to quiz starting page for that specific quiz
-        window.location.href = `minecraft-start-quiz.html?quiz=${quizName}`; 
+        window.location.href = `start-quiz.html?quiz=${quizName}`; 
     }
 
     // Function to take user back to the Minecraft category page
     function goToCategory() {
-      window.location.href = 'minecraft.html';
+      window.location.href = 'category.html';
     }
   
     // Function yo go back to the home page
     function goHome() {
-      window.location.href = 'index.html';
+      window.location.href = '/index.html';
     }
   </script>
 
   <!-- Load main external javascript-->
-  <script src="../main.js"></script>
+  <script src="../../main.js"></script>
 </body>
 </html> 
