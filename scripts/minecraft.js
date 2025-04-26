@@ -306,7 +306,7 @@ function showScore() {
 
     setTimeout(() => {
         // Go to the end page after the sound plays
-        window.location.href = `end-quiz.html?quiz=${quizName}`;
+        window.location.href = `minecraft-end-quiz.html?quiz=${quizName}`;
     // 3 second delay to allow sound to play through
     }, 3000);
 }
