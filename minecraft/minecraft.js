@@ -33,10 +33,10 @@ const questions = {
             question: "Which mob explodes when it gets close to the player?",
             // Answer options 
             answers: [
-                { src: "../images/skeleton.webp", correct: false },
-                { src: "../images/enderman.webp", correct: false },
-                { src: "../images/creeper.png", correct: true },
-                { src: "../images/blaze.webp", correct: false }
+                { src: "images/skeleton.webp", correct: false },
+                { src: "images/enderman.webp", correct: false },
+                { src: "images/creeper.png", correct: true },
+                { src: "images/blaze.webp", correct: false }
             ]
         }
     ],
@@ -54,10 +54,10 @@ const questions = {
             type: "image-choice",
             question: "What is the crafting recipe for a Fence Gate",
             answers: [
-                { src: "../images/fence.png", correct: false },
-                { src: "../images/ladder.png", correct: false },
-                { src: "../images/sticks.png", correct: false },
-                { src: "../images/gate.png", correct: true }
+                { src: "images/fence.png", correct: false },
+                { src: "images/ladder.png", correct: false },
+                { src: "images/sticks.png", correct: false },
+                { src: "images/gate.png", correct: true }
             ]
         },
         {
@@ -77,10 +77,10 @@ const questions = {
             type: "image-choice",
             question: "What boss has to be defeated to 'complete' the game?",
             answers: [
-                { src: "../images/warden.webp", correct: false },
-                { src: "../images/dragon.webp", correct: true },
-                { src: "../images/guardian.webp", correct: false },
-                { src: "../images/wither.webp", correct: false }
+                { src: "images/warden.webp", correct: false },
+                { src: "images/dragon.webp", correct: true },
+                { src: "images/guardian.webp", correct: false },
+                { src: "images/wither.webp", correct: false }
             ]
         },
         {
@@ -127,10 +127,10 @@ const questions = {
             type: "image-choice",
             question: "Which villeger has the job of a Librarian?",
             answers: [
-                { src: "../images/librarian.webp", correct: true },
-                { src: "../images/blacksmith.webp", correct: false },
-                { src: "../images/trader.webp", correct: false },
-                { src: "../images/fletcher.webp", correct: false }
+                { src: "images/librarian.webp", correct: true },
+                { src: "images/blacksmith.webp", correct: false },
+                { src: "images/trader.webp", correct: false },
+                { src: "images/fletcher.webp", correct: false }
             ]
         }
     ]
