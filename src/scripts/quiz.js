@@ -24,11 +24,11 @@ document.addEventListener("DOMContentLoaded", () => {
   const retryBtn  = document.getElementById('retry-button');
   const scoreSpan = document.getElementById('score');
 
-  // Sound effects
+  // sfx
   const correctSnd = new Audio('../assets/sfx/correct.mp3');
-  const wrongSnd   = new Audio('../assets/sfx/wrong_buzzer.mp3');
-  const passSnd    = new Audio('../assets/sfx/result_pass.mp3');
-  const failSnd    = new Audio('../assets/sfx/result_fail.mp3');
+  const wrongSnd   = new Audio('../assets/sfx/incorrect.mp3');
+  const passSnd    = new Audio('../assets/sfx/pass.mp3');
+  const failSnd    = new Audio('../assets/sfx/fail.mp3');
 
   let questions = [], idx = 0, score = 0, timerId;
   const timeLimit = 15;
