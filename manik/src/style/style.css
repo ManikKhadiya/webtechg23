@@ -74,7 +74,7 @@ nav ul li a {
 }
 
 #random-quiz-btn {
-    background: #28a745;      /* nice green */
+    background: #28a745; /* nice green */
     color: #fff;
     border: none;
     padding: 0.8rem 1.2rem;
@@ -82,11 +82,11 @@ nav ul li a {
     font-size: 1rem;
     cursor: pointer;
     transition: background 0.2s ease;
-    margin: 1rem auto;        /* center it under the options */
+    margin: 1rem auto; /* center it under the options */
     display: block;
   }
   
   #random-quiz-btn:hover {
-    background: #218838;      /* darker on hover */
+    background: #218838; /* darker on hover */
   }
   

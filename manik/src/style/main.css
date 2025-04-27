@@ -2,14 +2,14 @@
 
 /* ─ Header + Nav ─ */
 header {
-    background-color: #333;      /* full-width grey */
+    background-color: #333; /* full-width grey */
     padding: 10px 0;
     position: relative;
-    text-align: center;          /* center inline nav */
+    text-align: center; /* center inline nav */
   }
   
   #navbar-container nav {
-    display: inline-block;       /* inline so text-align:center works */
+    display: inline-block; /* inline so text-align:center works */
   }
   
   #navbar-container nav ul {
