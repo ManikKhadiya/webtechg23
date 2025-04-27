@@ -5,7 +5,7 @@
     <!-- link to general css stylesheet-->
     <link rel="stylesheet" href="main.css"> 
     <!-- link to quiz specific css stylesheet-->
-    <link rel="stylesheet" href="minecraft/minecraft.css"> 
+    <link rel="stylesheet" href="minecraft/quiz.css"> 
     <!-- Import pixel style font from Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
 </head>
@@ -22,28 +22,19 @@
     <main>
         <!-- Container where the buttons to select a category will appear-->
         <div class="quiz-selection">
-            <!-- When this button is clicked it redirects to the Minecraft Category page-->
             <button class="btn quiz-btn" 
-                onclick="goToCategory('minecraft')">Minecraft Quizzes</button>
+                onclick="location.href='minecraft/minecraft.html'" class="btn">Minecraft Quizzes</button>
     
             <button class="btn quiz-btn" 
-                onclick="goToCategory('category2')">Category 2</button>
+                onclick="location.href='category2.html'" class="btn">Minecraft Quizzes</button>
     
             <button class="btn quiz-btn" 
-                onclick="goToCategory('category3')">Category 3</button>
+                onclick="location.href='category3.html'" class="btn">Minecraft Quizzes</button>
     
             <button class="btn quiz-btn" 
-                onclick="goToCategory('category4')">Category 4</button>
+                onclick="location.href='category4.html'" class="btn">Minecraft Quizzes</button>
         </div>
     </main>
-
-    <script>
-        // Function to take user to the Minecraft category page
-        function goToCategory(category) {
-            window.location.href = `minecraft/category.html?quiz=${category}`;
-        }
-    </script>
-
     <!-- Load main external javascript-->
     <script src="main.js"></script>
 </body>
