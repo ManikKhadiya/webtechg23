@@ -59,6 +59,21 @@
   background: #555;
 }
 
+#retry-button {
+  background: #28a745; /* nice green */
+  color: #fff;
+  border: none;
+  padding: 0.8rem 1.2rem;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  margin-top: 1rem;
+}
+#retry-button:hover {
+  background: #218838; /* darker green */
+}
+
 /* Timer display */
 #question-timer {
   font-weight: bold;

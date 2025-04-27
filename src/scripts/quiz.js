@@ -13,9 +13,10 @@ document.addEventListener("DOMContentLoaded", () => {
     .catch(err => console.error(err));
 
   // DOM references
+  const heroCont = document.getElementById('hero');
   const selectionCont = document.getElementById('quiz-selection-container');
   const quizOptCont = document.getElementById('quiz-options');
-  //const quizCont = document.getElementById('quiz-selection-container');
+  const quizCont = document.getElementById('quiz-container');
   const resultsCont = document.getElementById('results-container');
   const timerDisp = document.getElementById('question-timer');
   const QuesTxt = document.getElementById('question-text');
@@ -31,7 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const failSnd = new Audio('../assets/sfx/fail.mp3');
 
   let questions = [], idx = 0, score = 0, timerId;
-  const timeLimit = 15;
+  const timeLimit = 10;
 
   function initQuiz() {
     showOptions();
@@ -72,6 +73,7 @@ document.addEventListener("DOMContentLoaded", () => {
   function startQuiz(key) {
     questions = questionsData[key].questions;
     idx = 0; score = 0;
+    heroCont.classList.add('hidden');
     selectionCont.classList.add('hidden');
     quizCont.classList.remove('hidden');
     showQuestion();
@@ -125,6 +127,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function resetFlow() {
     clearInterval(timerId);
+    heroCont.classList.remove('hidden');
     selectionCont.classList.remove('hidden');
     quizCont.classList.add('hidden');
     resultsCont.classList.add('hidden');
