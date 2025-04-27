@@ -40,10 +40,6 @@ nav ul li a {
     display: none !important; /* Ensure it hides when applied */
 }
 
-.shown {
-    display: block !important; /* Ensure it shows when applied */
-}
-
 #accessibility-menu {
     display: block; /* Default: Make sure it's visible initially */
     position: fixed;
