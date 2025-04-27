@@ -1,3 +1,5 @@
+/* src/style/style.css */
+/* style.css */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -69,13 +71,6 @@ nav ul li a {
     justify-content: center;
     flex-wrap: wrap;
     padding: 20px;
-}
-.quiz-options {
-    background: white;
-    margin: 10px;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 #random-quiz-btn {

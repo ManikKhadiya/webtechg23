@@ -15,7 +15,8 @@ document.addEventListener("DOMContentLoaded", () => {
   // DOM references
   const heroCont = document.getElementById('hero-container');
   const selectionCont = document.getElementById('quiz-selection-container');
-  const quizOptCont = document.getElementById('quiz-options');
+  const quizOptCont = document.getElementById('quiz-options-container');
+  const quizOpt = document.getElementById('quiz-options');
   const quizCont = document.getElementById('quiz-container');
   const resultsCont = document.getElementById('results-container');
   const timerDisp = document.getElementById('question-timer');
@@ -58,15 +59,15 @@ document.addEventListener("DOMContentLoaded", () => {
     selectionCont.classList.remove('hidden');
     quizCont.classList.add('hidden');
     resultsCont.classList.add('hidden');
-    quizOptCont.innerHTML = '';
+    quizOpt.innerHTML = '';
     Object.keys(questionsData).forEach(key => {
       const qz = questionsData[key];
       const btn = document.createElement('button');
       btn.className = 'quiz-options';
-      btn.textContent = qz.title;
+      btn.textContent = key;
       btn.title = qz.description;
       btn.onclick = () => startQuiz(key);
-      quizOptCont.appendChild(btn);
+      quizOpt.appendChild(btn);
     });
   }
 

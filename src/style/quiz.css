@@ -9,20 +9,35 @@
   margin: 2rem 0;
 }
 
-/* Each quiz-choice button */
-.quiz-option {
+.quiz-options {
   background: #007bff;
   color: #fff;
-  border: none;
-  padding: 0.8rem 1.2rem;
-  border-radius: 6px;
-  font-size: 1rem;
+  border: 2px solid transparent;
+  border-radius: 10px;
+  padding: 0.75em 1.5em;
+  margin: 0.5em;
   cursor: pointer;
-  transition: background 0.2s ease;
+  transition: 
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    background-color 0.2s ease,
+    border-color 0.2s ease;
 }
 
-.quiz-option:hover {
+.quiz-options:hover {
   background: #0056b3;
+}
+
+.quiz-options:hover,
+.quiz-options:focus {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  background-color: #218838; /* a very light blue */
+  border-color: #007acc; /* accent border on hover */
+}
+
+.quiz-options:focus {
+  outline: none; /*drawing border */
 }
 
 /* Quiz question area */
