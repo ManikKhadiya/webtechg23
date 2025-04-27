@@ -74,6 +74,21 @@
   background: #218838; /* darker green */
 }
 
+#skip-button {
+  background: #ffc107; /* nice yellow */
+  color: #000;
+  border: none;
+  padding: 0.8rem 1.2rem;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  margin-top: 1rem;
+}
+#skip-button:hover {
+  background: #e0a800; /* darker yellow */
+}
+
 /* Timer display */
 #question-timer {
   font-weight: bold;

@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
     .catch(err => console.error(err));
 
   // DOM references
-  const heroCont = document.getElementById('hero');
+  const heroCont = document.getElementById('hero-container');
   const selectionCont = document.getElementById('quiz-selection-container');
   const quizOptCont = document.getElementById('quiz-options');
   const quizCont = document.getElementById('quiz-container');
@@ -125,8 +125,16 @@ document.addEventListener("DOMContentLoaded", () => {
     (pct >= 50 ? passSnd : failSnd).play();
   }
 
+  function sfxStop() {
+    correctSnd.pause(); correctSnd.currentTime = 0;
+    wrongSnd.pause(); wrongSnd.currentTime = 0;
+    passSnd.pause(); passSnd.currentTime = 0;
+    failSnd.pause(); failSnd.currentTime = 0;
+  }
+
   function resetFlow() {
     clearInterval(timerId);
+    sfxStop();
     heroCont.classList.remove('hidden');
     selectionCont.classList.remove('hidden');
     quizCont.classList.add('hidden');
