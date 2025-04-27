@@ -16,7 +16,7 @@
         <!-- Navigation bar placeholder (loaded using javascript)-->
         <div id="navbar-container"></div>
         <!-- Subtitle title of Categories page-->
-        <h2>ARE YOU READY?</h2>
+        <h2>PICK A QUIZ!</h2>
     </header>
 
     <main>
@@ -43,16 +43,16 @@
                 onclick="startQuiz('storyline')">Storyline</button>
 
             <button class="btn quiz-btn" 
-                onmouseover="showDescription(this, 'Test your general knowledge with a timed quiz challenge!')" 
-                onmouseout="hideDescription(this, 'General Knowledge (Timed Quiz)')" 
-                onclick="startQuiz('general')">General Knowledge (Timed Quiz)</button>
+                onmouseover="showDescription(this, 'Test your general knowledge with random questions from all aspects of the game and with time against you!')" 
+                onmouseout="hideDescription(this, 'Random Questions (Timed Quiz)')" 
+                onclick="startQuiz('random')">Random Questions (Timed Quiz)</button>
         </div>
     </main>
 
     <script>
         // Function to show the description of the quiz
         function showDescription(button, description) {
-            button.innerText = description;n
+            button.innerText = description;
         }
 
         // Function to revert back to the button title
