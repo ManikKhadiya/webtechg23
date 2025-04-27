@@ -42,17 +42,22 @@ document.addEventListener("DOMContentLoaded", () => {
       showOptions();
     });
 
-    // at the bottom of initQuiz():
     const randBtn = document.getElementById('random-quiz-btn');
     if (randBtn) {
       randBtn.addEventListener('click', () => {
-        // take all quiz keys, pick one randomly:
+        // pick a random quiz
         const keys = Object.keys(questionsData);
         const randomKey = keys[Math.floor(Math.random() * keys.length)];
         // start that quiz
         startQuiz(randomKey);
       });
     }
+
+    skipBtn.addEventListener('click', () => {
+      clearInterval(timerId);
+      answer(false); //next question(wrong, update fidelity later)
+    });
+    
   }
 
   function showOptions() {
