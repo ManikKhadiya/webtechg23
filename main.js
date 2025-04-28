@@ -1,7 +1,7 @@
 // Global javascript to insert the navigation bar
 
 // Get the navbar HTML file
-fetch("navbar.html")
+fetch("/webtechg23/navbar.html")
 // convert the response into text
     .then(response => response.text())
     .then(data => {
