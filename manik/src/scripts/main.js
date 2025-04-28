@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
   
   function loadComponent(path, containerId) {
-    fetch(path)
+    return fetch(path)
       .then(res => {
         if (!res.ok) throw new Error(`HTTP ${res.status} loading ${path}`);
         return res.text();
