@@ -2,13 +2,13 @@
 document.addEventListener("DOMContentLoaded", () => {
   const path = window.location.pathname.split("/").pop();
   const user = localStorage.getItem("currentUser");
-  // if not on login page and no user → redirect
+  // redirect if != login page and no user
   if (!user && path !== "login.html") {
     window.location.href = "login.html";
   }
 });
 
-// called by login.html’s button
+// called login.htmls button
 function loginUser() {
   const input = document.getElementById("username");
   const username = input.value.trim();
@@ -17,7 +17,7 @@ function loginUser() {
   window.location.href = "quiz.html";
 }
 
-// you can hook this to a “Logout” link in your navbar
+//logout buttion
 function logoutUser() {
   localStorage.removeItem("currentUser");
   window.location.href = "login.html";

@@ -1,4 +1,5 @@
-let timeLeft = 10; // 10 seconds per question
+//redunts
+let timeLeft = 10; //10s / q
 let timer;
 
 function startTimer() {
@@ -12,11 +13,11 @@ function startTimer() {
 
     if (timeLeft === 0) {
       clearInterval(timer);
-      nextQuestion(); // Auto-skip if time runs out
+      nextQuestion(); // autoskiop
     }
   }, 1000);
 }
 
 function loadQuestion() {
-  startTimer(); // Start countdown on new question
+  startTimer(); //retastrs flow
 }

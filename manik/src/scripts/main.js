@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
   
   function setupNav() {
     const user = localStorage.getItem("currentUser");
-    const navUser = document.getElementById("nav-user");
+    const navUser = document.getElementById("nav-user"); //impliment this soehtere
     const btnLogin = document.getElementById("nav-login");
     const btnOut = document.getElementById("nav-logout");
   
