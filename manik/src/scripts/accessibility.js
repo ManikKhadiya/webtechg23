@@ -29,8 +29,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     volumeSlider.addEventListener("input", e => {
       const vol = parseFloat(e.target.value);
-      //for each audio tag in the document, set the volume to vol 
-      document.querySelectorAll("audio").forEach(a => {a.volumeSlider = vol});
+      // sets each sfx obj .volume property
+      if (window.sfxList) {
+        window.sfxList.forEach(a => {a.volume = vol;});
+      }
       updateVolumeDisplay(vol);
     });
 
