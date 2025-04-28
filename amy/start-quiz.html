@@ -30,6 +30,11 @@
     </main>
 
     <script>
+        // Get navbar
+        document.addEventListener("DOMContentLoaded", () => {
+        loadComponent("../navbar.html", "navbar-container");
+        });
+
         // Function to get the quiz namer from the URL to figure out what quiz to start
         function getQuizFromURL() {
           var params = new URLSearchParams(window.location.search);

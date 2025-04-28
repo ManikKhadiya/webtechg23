@@ -50,6 +50,11 @@
     </main>
 
     <script>
+        // Get navbar
+        document.addEventListener("DOMContentLoaded", () => {
+        loadComponent("../navbar.html", "navbar-container");
+        });
+        
         // Function to show the description of the quiz
         function showDescription(button, description) {
             button.innerText = description;
