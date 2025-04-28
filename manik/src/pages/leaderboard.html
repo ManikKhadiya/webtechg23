@@ -1,36 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Leaderboard</title>
-    <link rel="stylesheet" href="../style/main.css">
-    <link rel="stylesheet" href="../style/leaderboard.css">
-</head>
-<body>
-    <header>
-        <div id="navbar-container"></div>
-    </header>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon/favico16.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon/favico32.png">
+        <link rel="icon" type="image/png" sizes="96x96" href="../assets/favicon/favico96.png">
+        <link rel="apple-touch-icon" sizes="120x120" href="../assets/favicon/favico120.png">
+        <title>Leaderboard</title>
+        <link rel="stylesheet" href="../style/main.css" />
+        <link rel="stylesheet" href="../style/style.css">
+        <link rel="stylesheet" href="../style/accessibility.css" />
+        <link rel="stylesheet" href="../style/leaderboard.css">
+    </head>
+    <body>
+        <header>
+            <div id="navbar-container"></div>
+        </header>
 
-    <main class="leaderboard-container">
-        <h1>Leaderboard</h1>
-        <table>
-            <thead>
+        <main class="leaderboard-container">
+            <h1>Leaderboard</h1>
+            <table>
+                <thead>
                 <tr>
-                    <th>Username</th>
+                    <th>User</th>
+                    <th>Quiz</th>
                     <th>Score</th>
                     <th>Date</th>
                 </tr>
-            </thead>
-            <tbody id="leaderboard-body"></tbody>
-        </table>
-    </main>
+                </thead>
+                <tbody id="leaderboard-body"></tbody>
+            </table>
+        </main>
 
-    <footer>
-        <div id="footer-container"></div>
-    </footer>
+        <footer>
+            <div id="footer-container"></div>
+        </footer>
 
-    <script src="../scripts/main.js"></script>
-    <script src="../scripts/leaderboard.js"></script>
-</body>
+        <script src="../scripts/main.js" defer></script>
+        <script src="../scripts/auth.js" defer></script>
+        <script type="module" src="../scripts/leaderboard.js" defer></script>
+    </body>
 </html>

@@ -1,4 +1,11 @@
 // src/scripts/quiz.js
+
+//this is for the leaderboard
+import { saveScore } from './leaderboard.js';
+
+//vars
+let currentQuizKey;
+
 document.addEventListener("DOMContentLoaded", () => {
   let questionsData = null;
   fetch('../data/questions.json')
@@ -43,6 +50,7 @@ document.addEventListener("DOMContentLoaded", () => {
   if (!isNaN(savedVol)) {
     window.sfxList.forEach(a => a.volume = savedVol);
   }
+  
 
 
   function initQuiz() {
@@ -87,6 +95,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function startQuiz(key) {
+    currentQuizKey = key;
     questions = questionsData[key].questions;
     idx = 0; score = 0;
     heroCont.classList.add('hidden');
@@ -139,6 +148,12 @@ document.addEventListener("DOMContentLoaded", () => {
     scoreSpan.textContent = `${score}/${questions.length}`;
     const pct = (score / questions.length) * 100;
     (pct >= 50 ? passSnd : failSnd).play();
+    //save score to leaderboard
+    // saveScore(score, quizKey)
+    saveScore(score, currentQuizKey);
+    setTimeout(() => {
+      window.location.href = 'leaderboard.html';
+    }, 1000);
   }
 
   function sfxStop() {
