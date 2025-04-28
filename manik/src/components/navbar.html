@@ -1,9 +1,14 @@
 <nav>
     <ul>
+      <span id="nav-user"></span>
       <li><a href="../../../index.html">Home</a></li>
-      <li><a href="../pages/quiz.html">Categories</a></li>
+      <li><a href="../../../amy/minecraft.html">Minecraft Category</a></li>
+      <li><a href="../../../zander/category-page-consoles-and-hardware.html">Console and Hardware Category</a></li>
+      <li><a href="../pages/quiz.html">CS:GO Category</a></li>
+      <li><a href="../../../david/quiz.html">Mario Category</a></li>
       <li><a href="../pages/leaderboard.html">Leaderboard</a></li>
-      <li><a href="../pages/login.html">Login</a></li>
+      <li><button id="nav-login" onclick="window.location.href='login.html'">Log in</button></li>
+      <li><button id="nav-logout" onclick="logoutUser()" hidden>Logout</button></li>
     </ul>
   
     <!--accessibility added into the nav -->

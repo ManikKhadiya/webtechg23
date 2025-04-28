@@ -1,12 +1,12 @@
 // src/scripts/main.js
 document.addEventListener("DOMContentLoaded", () => {
-    loadComponent("../components/navbar.html",        "navbar-container");
-    //loadComponent("../components/accessibility.html", "accessibility-container");
-    loadComponent("../components/footer.html",        "footer-container");
+    loadComponent("../components/navbar.html", "navbar-container")
+        .then(setupNav);
+    loadComponent("../components/footer.html", "footer-container");
   });
   
   function loadComponent(path, containerId) {
-    fetch(path)
+    return fetch(path)
       .then(res => {
         if (!res.ok) throw new Error(`HTTP ${res.status} loading ${path}`);
         return res.text();
@@ -17,6 +17,22 @@ document.addEventListener("DOMContentLoaded", () => {
       .catch(err => console.error(err));
   }
   
+  function setupNav() {
+    const user = localStorage.getItem("currentUser");
+    const navUser = document.getElementById("nav-user");
+    const btnLogin = document.getElementById("nav-login");
+    const btnOut = document.getElementById("nav-logout");
+  
+    if (user) {
+      navUser.textContent = `Welcome, ${user}`;
+      btnLogin.hidden = true;
+      btnOut.hidden = false;
+    } else {
+      navUser.textContent = ``;
+      btnLogin.hidden = false;
+      btnOut.hidden = true;
+    }
+  }
   
 
   
