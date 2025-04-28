@@ -1,10 +1,16 @@
-// Global javascript to insert the navigation bar
+//Manik navbar fix 12.32
+document.addEventListener("DOMContentLoaded", () => {
+    loadComponent("navbar.html", "navbar-container")
+  });
 
-// Get the navbar HTML file
-fetch("webtechg23/navbar.html")
-// convert the response into text
-    .then(response => response.text())
-    .then(data => {
-        // Insert the navbar content into the container id
-        document.getElementById("navbar-container").innerHTML = data;
-    });
+  function loadComponent(path, containerId) {
+    return fetch(path)
+      .then(res => {
+        if (!res.ok) throw new Error(`HTTP ${res.status} loading ${path}`);
+        return res.text();
+      })
+      .then(html => {
+        document.getElementById(containerId).innerHTML = html;
+      })
+      .catch(err => console.error(err));
+  }
