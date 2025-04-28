@@ -34,7 +34,7 @@ header {
 	width: 100%;
 	background-color: var(--colour-dark);
 	color: var(--text-light);
-	padding: 20px 0 0 20px;
+	padding: 20px 40px0 20px;
 	text-align: left;
 	box-shadow: 0 2px 4px var(--shadow);
 	}
