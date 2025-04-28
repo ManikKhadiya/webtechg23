@@ -32,8 +32,18 @@ document.addEventListener("DOMContentLoaded", () => {
   const passSnd = new Audio('../assets/sfx/pass.mp3');
   const failSnd = new Audio('../assets/sfx/fail.mp3');
 
+  // expose sfx for accessibility.js
+  window.sfxList = [ correctSnd, wrongSnd, passSnd, failSnd ];
+
   let questions = [], idx = 0, score = 0, timerId;
   const timeLimit = 10;
+
+  //saving volume to local storage
+  const savedVol = parseFloat(localStorage.getItem('sfxVol'));
+  if (!isNaN(savedVol)) {
+    window.sfxList.forEach(a => a.volume = savedVol);
+  }
+
 
   function initQuiz() {
     showOptions();
@@ -42,17 +52,22 @@ document.addEventListener("DOMContentLoaded", () => {
       showOptions();
     });
 
-    // at the bottom of initQuiz():
     const randBtn = document.getElementById('random-quiz-btn');
     if (randBtn) {
       randBtn.addEventListener('click', () => {
-        // take all quiz keys, pick one randomly:
+        // pick a random quiz
         const keys = Object.keys(questionsData);
         const randomKey = keys[Math.floor(Math.random() * keys.length)];
         // start that quiz
         startQuiz(randomKey);
       });
     }
+
+    skipBtn.addEventListener('click', () => {
+      clearInterval(timerId);
+      answer(false); //next question(wrong, update fidelity later)
+    });
+    
   }
 
   function showOptions() {
@@ -113,7 +128,7 @@ document.addEventListener("DOMContentLoaded", () => {
   function answer(isRight) {
     clearInterval(timerId);
     if (isRight) { score++; correctSnd.play(); }
-    else         { wrongSnd.play(); }
+    else { wrongSnd.play(); }
     idx++;
     setTimeout(showQuestion, 500);
   }

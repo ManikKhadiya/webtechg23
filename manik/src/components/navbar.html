@@ -1,6 +1,6 @@
 <nav>
     <ul>
-      <li><a href="../pages/quiz.html">Home</a></li>
+      <li><a href="../../../index.html">Home</a></li>
       <li><a href="../pages/quiz.html">Categories</a></li>
       <li><a href="../pages/leaderboard.html">Leaderboard</a></li>
       <li><a href="../pages/login.html">Login</a></li>
@@ -21,21 +21,25 @@
         <h3>Accessibility</h3>
         <label>
           <input type="checkbox" id="toggle-contrast" />
-          High Contrast
+          Dark Mode
         </label>
         <label>
           <input type="checkbox" id="toggle-text" />
           Large Text
         </label>
-        <label>
+        <label id="volume-wrapper">
           Volume:
+          <span id="volume-value">50%</span>
+          <br />
           <input
             type="range"
             id="volume-slider"
+            title="volume control - recommended 0.01"
+            aria-label="Volume Control"
             min="0"
             max="1"
             step="0.01"
-            value="1"
+            value="0.01"
           />
         </label>
       </div>

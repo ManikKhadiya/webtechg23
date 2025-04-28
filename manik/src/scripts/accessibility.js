@@ -12,7 +12,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const menu = document.getElementById("accessibility-menu");
     const contrast = document.getElementById("toggle-contrast");
     const text = document.getElementById("toggle-text");
-    const volume = document.getElementById("volume-slider");
+    const volumeSlider = document.getElementById("volume-slider");
+    const volumeVal = document.getElementById("volume-value"); // visibl val
 
     icon.addEventListener("click", () => {
       menu.classList.toggle("hidden");
@@ -26,9 +27,17 @@ document.addEventListener("DOMContentLoaded", () => {
       document.body.classList.toggle("large-text", e.target.checked);
     });
 
-    volume.addEventListener("input", e => {
-      const v = parseFloat(e.target.value);
-      document.querySelectorAll("audio").forEach(a => a.volume = v);
+    volumeSlider.addEventListener("input", e => {
+      const vol = parseFloat(e.target.value);
+      // sets each sfx obj .volume property
+      if (window.sfxList) {
+        window.sfxList.forEach(a => {a.volume = vol;});
+      }
+      updateVolumeDisplay(vol);
     });
+
+    function updateVolumeDisplay(vol) {
+      volumeVal.textContent = `${Math.round(vol * 100)}%`;
+    }
   });
 });

@@ -48,10 +48,22 @@
 
 /* High-contrast & large-text toggles */
 body.high-contrast {
-  background: #000 !important;
+  background: #111 !important;
+  color: #fff !important;
+}
+
+body.high-contrast .accessibility-menu {
+  background: #222 !important; /* dark charcoal background */
+  border-color: #555 !important; /* lighter charcoal border */
+  color: #fff !important; /* white txt in menu */
+}
+
+/* slider cahnge? idt this does shit icl maybe use specific IDs*/
+body.high-contrast .accessibility-menu input,
+body.high-contrast .accessibility-menu label {
   color: #fff !important;
 }
 
 body.large-text {
-  font-size: 1.2em !important;
+  font-size: 1.5em !important;
 }

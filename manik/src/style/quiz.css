@@ -24,10 +24,6 @@
     border-color 0.2s ease;
 }
 
-.quiz-options:hover {
-  background: #0056b3;
-}
-
 .quiz-options:hover,
 .quiz-options:focus {
   transform: scale(1.05);
