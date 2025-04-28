@@ -21,21 +21,23 @@
         <h3>Accessibility</h3>
         <label>
           <input type="checkbox" id="toggle-contrast" />
-          High Contrast
+          Dark Mode
         </label>
         <label>
           <input type="checkbox" id="toggle-text" />
           Large Text
         </label>
-        <label>
+        <label id="volume-wrapper">
           Volume:
+          <span id="volume-value">50%</span>
+          <br />
           <input
             type="range"
             id="volume-slider"
             min="0"
             max="1"
             step="0.01"
-            value="1"
+            value="0.50"
           />
         </label>
       </div>

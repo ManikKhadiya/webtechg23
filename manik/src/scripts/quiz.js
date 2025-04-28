@@ -118,7 +118,7 @@ document.addEventListener("DOMContentLoaded", () => {
   function answer(isRight) {
     clearInterval(timerId);
     if (isRight) { score++; correctSnd.play(); }
-    else         { wrongSnd.play(); }
+    else { wrongSnd.play(); }
     idx++;
     setTimeout(showQuestion, 500);
   }
