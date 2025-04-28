@@ -12,9 +12,11 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v3
+
       - name: Upload Files to GitHub Pages
         uses: actions/upload-pages-artifact@v2
         with:
-          path: src
+          path: . # Upload everything in the repository
+
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v2
