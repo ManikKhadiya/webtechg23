@@ -14,6 +14,8 @@ function loadLeaderboard() {
   // sort by score desc, then newest first
   scores.sort((a,b) => b.score - a.score || new Date(b.date) - new Date(a.date));
   const tbody = document.getElementById("leaderboard-body");
+  //failsafe to make sure tbody exists(LB not present)
+  if (!tbody) return;
   tbody.innerHTML = scores
     .slice(0, 10)  // top 10
     .map(s => `
