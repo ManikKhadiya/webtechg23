@@ -10,19 +10,18 @@ export function saveScore(score) {
 }
 
 function loadLeaderboard() {
-  const scores = JSON.parse(localStorage.getItem("quizScores")||"[]");
-  // sort by score desc, then newest first
-  scores.sort((a,b) => b.score - a.score || new Date(b.date) - new Date(a.date));
   const tbody = document.getElementById("leaderboard-body");
-  //failsafe to make sure tbody exists(LB not present)
-  if (!tbody) return;
-  tbody.innerHTML = scores
-    .slice(0, 10)  // top 10
-    .map(s => `
-      <tr>
-        <td>${s.username}</td>
-        <td>${s.score}</td>
-        <td>${s.date}</td>
-      </tr>
-    `).join("");
+  if (!tbody) return;   // failshafe
+
+  const scores = JSON.parse(localStorage.getItem("quizScores")||"[]")
+    .sort((a,b) => b.score - a.score || new Date(b.date) - new Date(a.date));
+
+  tbody.innerHTML = scores.map(s => `
+    <tr>
+      <td>${s.username}</td>
+      <td>${s.quiz}</td>
+      <td>${s.score}</td>
+      <td>${s.date}</td>
+    </tr>
+  `).join("");
 }

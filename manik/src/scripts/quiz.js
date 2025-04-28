@@ -48,6 +48,8 @@ document.addEventListener("DOMContentLoaded", () => {
     window.sfxList.forEach(a => a.volume = savedVol);
   }
   
+
+
   function initQuiz() {
     showOptions();
     retryBtn.addEventListener('click', () => {
@@ -90,6 +92,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function startQuiz(key) {
+    currentQuizKey = key;
     questions = questionsData[key].questions;
     idx = 0; score = 0;
     heroCont.classList.add('hidden');
@@ -143,7 +146,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const pct = (score / questions.length) * 100;
     (pct >= 50 ? passSnd : failSnd).play();
     //save score to leaderboard
-    saveScore(score);
+    // saveScore(score, quizKey)
+    saveScore(score, currentQuizKey);
     setTimeout(() => {
       window.location.href = 'leaderboard.html';
     }, 1000);
