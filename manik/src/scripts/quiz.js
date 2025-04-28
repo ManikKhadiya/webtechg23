@@ -3,6 +3,9 @@
 //this is for the leaderboard
 import { saveScore } from './leaderboard.js';
 
+//vars
+let currentQuizKey;
+
 document.addEventListener("DOMContentLoaded", () => {
   let questionsData = null;
   fetch('../data/questions.json')
