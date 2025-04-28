@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pick a Quiz</title>
+    <!-- link to general css stylesheet-->
+    <link rel="stylesheet" href="../main.css"> 
+    <!-- link to quiz specific css stylesheet-->
+    <link rel="stylesheet" href="quiz.css"> 
+    <!-- Import pixel style font from Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <!-- Main title of Website-->
+        <h1 class="title">Gaming Quiz App</h1>
+        <!-- Navigation bar placeholder -->
+        <div id="navbar-container"></div>
+        <!-- Subtitle title of Categories page-->
+        <h2>PICK A QUIZ!</h2>
+    </header>
+
+    <main>
+        <!-- Quiz selection section-->
+        <div class="quiz-selection">
+            <!-- Each button represents a different quiz category-->
+
+            <!-- When the user hovers over the button a description of the quiz appears -->
+            <!-- When not hovering the button switches back to just showing the title of the quiz-->
+            <!-- When the button os click it starts the quiz-->
+            <button class="btn quiz-btn" 
+                onmouseover="showDescription(this, 'Learn about mobs, their behavior, and how to deal with them!')" 
+                onmouseout="hideDescription(this, 'Mobs & Monsters')" 
+                onclick="startQuiz('mobs')">Mobs & Monsters</button>
+
+            <button class="btn quiz-btn" 
+                onmouseover="showDescription(this, 'Test your knowledge about crafting recipes, fighting tactics, and game mechanics!')" 
+                onmouseout="hideDescription(this, 'Mechanics: Crafting and Fighting')" 
+                onclick="startQuiz('mechanics')">Mechanics: Crafting and Fighting</button>
+
+            <button class="btn quiz-btn" 
+                onmouseover="showDescription(this, 'Test your knowledge on some of the game’s lore and storyline!')" 
+                onmouseout="hideDescription(this, 'Storyline')" 
+                onclick="startQuiz('storyline')">Storyline</button>
+
+            <button class="btn quiz-btn" 
+                onmouseover="showDescription(this, 'Test your general knowledge with random questions from all aspects of the game and with time against you!')" 
+                onmouseout="hideDescription(this, 'Random Questions (Timed Quiz)')" 
+                onclick="startQuiz('random')">Random Questions (Timed Quiz)</button>
+        </div>
+    </main>
+
+    <script>
+        // Function to show the description of the quiz
+        function showDescription(button, description) {
+            button.innerText = description;
+        }
+
+        // Function to revert back to the button title
+        function hideDescription(button, defaultText) {
+            button.innerText = defaultText;
+        }
+
+        // Function to start the selected quiz
+        function startQuiz(quizName) {
+            window.location.href = `start-quiz.html?quiz=${quizName}`;
+        }
+    </script>
+    <!-- Load main externalscript-->
+    <script src="../main.js"></script>
+</body>
+</html>
