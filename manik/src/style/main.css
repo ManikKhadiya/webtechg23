@@ -23,14 +23,23 @@ header {
     margin: 0 12px;
   }
   
-  #navbar-container nav a {
+  #navbar-container nav a, #navbar-container nav button {
     color: #fff;
     text-decoration: none;
     padding: 6px 12px;
     display: block;
   }
+
+  #navbar-container nav button {
+    background: #333; /* dark grey for buttons */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    font-size: 20px;
+  }
   
-  #navbar-container nav a:hover {
+  #navbar-container nav a:hover, #navbar-container nav button:hover {
     background: rgba(255,255,255,0.1);
     border-radius: 4px;
   }

@@ -1,53 +1,24 @@
-document.addEventListener("DOMContentLoaded", function () {
-  checkLoginStatus();
-});
-
-function checkLoginStatus() {
+// src/scripts/auth.js
+document.addEventListener("DOMContentLoaded", () => {
+  const path = window.location.pathname.split("/").pop();
   const user = localStorage.getItem("currentUser");
-  if (!user && window.location.pathname !== "/login.html") {
+  // if not on login page and no user → redirect
+  if (!user && path !== "login.html") {
     window.location.href = "login.html";
   }
-}
+});
 
+// called by login.html’s button
 function loginUser() {
-  const username = document.getElementById("username").value;
-  if (username.trim() === "") return alert("Enter a username!");
-
+  const input = document.getElementById("username");
+  const username = input.value.trim();
+  if (!username) return alert("Please enter a username");
   localStorage.setItem("currentUser", username);
-  window.location.href = "index.html";
+  window.location.href = "quiz.html";
 }
 
+// you can hook this to a “Logout” link in your navbar
 function logoutUser() {
   localStorage.removeItem("currentUser");
   window.location.href = "login.html";
 }
-
-
-
-/* incase shit above fails
-
-
-
-document.addEventListener("DOMContentLoaded", function () {
-    checkLoginStatus();
-});
-
-function checkLoginStatus() {
-    const user = localStorage.getItem("currentUser");
-    if (!user && window.location.pathname !== "/login.html") {
-        window.location.href = "login.html"; // Redirect if not logged in
-    }
-}
-
-function loginUser(username) {
-    localStorage.setItem("currentUser", username);
-    window.location.href = "index.html"; // Redirect to home
-}
-
-function logoutUser() {
-    localStorage.removeItem("currentUser");
-    window.location.href = "login.html"; // Redirect to login page
-}
-
-
-*/

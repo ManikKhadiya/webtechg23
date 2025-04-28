@@ -37,6 +37,9 @@ nav ul li a {
     padding: 10px;
     border-radius: 50%;
 }
+.accessibility-icon:hover {
+    background: #e6b800; /* darker yellow on hover */
+}
 
 .hidden {
     display: none !important; /* Ensure it hides when applied */

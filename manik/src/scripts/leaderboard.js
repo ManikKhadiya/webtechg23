@@ -1,40 +1,26 @@
-function saveScore(score) {
-  let scores = JSON.parse(localStorage.getItem("quizScores")) || [];
-  let user = localStorage.getItem("currentUser") || "Guest";
+// src/scripts/leaderboard.js
+document.addEventListener("DOMContentLoaded", loadLeaderboard);
 
-  scores.push({ username: user, score: score, date: new Date().toLocaleString() });
+export function saveScore(score) {
+  const user = localStorage.getItem("currentUser") || "Guest";
+  const now  = new Date().toLocaleString();
+  const scores = JSON.parse(localStorage.getItem("quizScores")||"[]");
+  scores.push({ username: user, score, date: now });
   localStorage.setItem("quizScores", JSON.stringify(scores));
 }
 
 function loadLeaderboard() {
-  let scores = JSON.parse(localStorage.getItem("quizScores")) || [];
-  let leaderboardBody = document.getElementById("leaderboard-body");
-
-  leaderboardBody.innerHTML = scores
-    .sort((a, b) => b.score - a.score)
-    .map(score => `<tr><td>${score.username}</td><td>${score.score}</td><td>${score.date}</td></tr>`)
-    .join("");
+  const scores = JSON.parse(localStorage.getItem("quizScores")||"[]");
+  // sort by score desc, then newest first
+  scores.sort((a,b) => b.score - a.score || new Date(b.date) - new Date(a.date));
+  const tbody = document.getElementById("leaderboard-body");
+  tbody.innerHTML = scores
+    .slice(0, 10)  // top 10
+    .map(s => `
+      <tr>
+        <td>${s.username}</td>
+        <td>${s.score}</td>
+        <td>${s.date}</td>
+      </tr>
+    `).join("");
 }
-
-
-/* incase above code fails
-
-function saveScore(score) {
-    let scores = JSON.parse(localStorage.getItem("quizScores")) || [];
-    let user = localStorage.getItem("currentUser") || "Guest";
-
-    scores.push({ username: user, score: score, date: new Date().toLocaleString() });
-    localStorage.setItem("quizScores", JSON.stringify(scores));
-}
-
-function loadLeaderboard() {
-    let scores = JSON.parse(localStorage.getItem("quizScores")) || [];
-    let leaderboardBody = document.getElementById("leaderboard-body");
-
-    leaderboardBody.innerHTML = scores
-        .sort((a, b) => b.score - a.score)
-        .map(score => `<tr><td>${score.username}</td><td>${score.score}</td><td>${score.date}</td></tr>`)
-        .join("");
-}
-
-*/
