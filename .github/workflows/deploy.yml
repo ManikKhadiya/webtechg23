@@ -1,22 +1,24 @@
 name: Deploy to GitHub Pages
 on:
   push:
-    branches: [main]
+    branches: [ main ]
+
 permissions:
   contents: read
   pages: write
   id-token: write
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Repository
+      - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Upload Files to GitHub Pages
-        uses: actions/upload-pages-artifact@v2
+      - name: Upload files to GitHub Pages
+        uses: actions/upload-pages-artifact@v3   #new vers.
         with:
-          path: . # Upload everything in the repository
+          path: .    # or your build output folder
 
       - name: Deploy to GitHub Pages
-        uses: actions/deploy-pages@v2
+        uses: actions/deploy-pages@v4            #new vers.
